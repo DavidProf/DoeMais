@@ -22,7 +22,17 @@ namespace DoeMais.Views.UserControls
     public partial class TimePicker : UserControl
     {
         TimeSpan time;
-        public TimeSpan Time { get => time; set => time = value; }
+        public TimeSpan Time
+        {
+            get
+            {
+                return time;
+            }
+            set
+            {
+                time = value;
+            }
+        }
 
         public TimePicker()
         {

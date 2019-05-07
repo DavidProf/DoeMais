@@ -28,7 +28,17 @@ namespace DoeMais.Views
 
         private void Button_perfil_Click(object sender, RoutedEventArgs e)
         {
-            new Perfil_Itens.PerfilWindow().Show();
+            ControlViews.startPerfil();
+        }
+
+        private void button_checkin_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void button_checarRetiradas_Click(object sender, RoutedEventArgs e)
+        {
+            ControlViews.startAgendamento();
         }
 
         private void Button_doacoes_Click(object sender, RoutedEventArgs e)
@@ -46,5 +56,6 @@ namespace DoeMais.Views
             button_instituicao.Style = Application.Current.FindResource("button_gradient") as Style;
             button_doacoes.Style = Application.Current.FindResource("button_transparent") as Style;
         }
+
     }
 }

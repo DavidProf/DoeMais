@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,24 +12,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace DoeMais.Views.Perfil_Itens
+namespace DoeMais.Views.Agendamento
 {
     /// <summary>
-    /// Interaction logic for PerfilWindow.xaml
+    /// Lógica interna para Agendamento.xaml
     /// </summary>
-    public partial class PerfilWindow : Window
+    public partial class Agendamento : Window
     {
-        public PerfilWindow()
+        public Agendamento()
         {
             InitializeComponent();
             MinimizeWindow.Click += (s, e) => WindowState = WindowState.Minimized;
-            CloseApp.Click += (s, e) => ControlViews.closePerfil();
-        }
-
-        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
-        {
-            Regex regex = new Regex("[^0-9]+");
-            e.Handled = regex.IsMatch(e.Text);
+            CloseApp.Click += (s, e) => ControlViews.closeAgendamento();
         }
     }
 }

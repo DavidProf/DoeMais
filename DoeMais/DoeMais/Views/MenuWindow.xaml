@@ -149,11 +149,13 @@
                 <Button Name="button_checarRetiradas" Grid.Row="2"
                         Grid.Column="2"
                         FontSize="16"
-                        Content="  Checar &#xa;Retiradas"/>
+                        Content="  Checar &#xa;Retiradas"
+                        Click="button_checarRetiradas_Click"/>
                 <Button Name="button_checkin" Grid.Row="3"
                         Grid.Column="1"
                         FontSize="16"
-                        Content="Check-in"/>
+                        Content="Check-in"
+                        Click="button_checkin_Click"/>
             </Grid>
 
             <Grid Grid.Row="2" Grid.Column="2">

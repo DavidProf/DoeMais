@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,26 +15,15 @@ using System.Windows.Shapes;
 namespace DoeMais.Views.Perfil_Itens
 {
     /// <summary>
-    /// Interaction logic for PerfilWindow.xaml
+    /// Lógica interna para ItensWindow.xaml
     /// </summary>
-    public partial class PerfilWindow : Window
+    public partial class ItensWindow : Window
     {
-        public PerfilWindow()
+        public ItensWindow()
         {
             InitializeComponent();
             MinimizeWindow.Click += (s, e) => WindowState = WindowState.Minimized;
-            CloseApp.Click += (s, e) => ControlViews.closePerfil();
-        }
-
-        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
-        {
-            Regex regex = new Regex("[^0-9]+");
-            e.Handled = regex.IsMatch(e.Text);
-        }
-
-        private void button_selecionarItens_Click(object sender, RoutedEventArgs e)
-        {
-            ControlViews.startItens();
+            CloseApp.Click += (s, e) => ControlViews.closeItens();
         }
     }
 }

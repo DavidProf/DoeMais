@@ -17,10 +17,17 @@ namespace DoeMais.Views
         public static String cnpj = "";
         #endregion
 
+        //variaveis para iniciar e controlar as telas
         private static MenuWindow menuWindow;
+        //perfil
         private static Perfil_Itens.PerfilWindow perfilWindow;
+        private static bool perfilOn = false;
+        //Agendamento
         private static Agendamento.Agendamento agendamentoWindow;
-
+        private static bool agendamentoOn = false;
+        //Itens
+        private static Perfil_Itens.ItensWindow itensWindow;
+        private static bool itensOn = false;
 
         public ControlViews()
         {
@@ -30,33 +37,93 @@ namespace DoeMais.Views
         }
 
         //Fechar e abrir janela de perfil
+        #region perfil
         public static void startPerfil()
         {
-            menuWindow.Hide();
-            perfilWindow = new Perfil_Itens.PerfilWindow();
-            perfilWindow.Show();
+            if (itensOn)
+            {
+                itensWindow.Focus();
+                return;
+            }
+            if (perfilOn)
+            {
+                perfilWindow.Focus();
+            }
+            else
+            {
+                perfilWindow = new Perfil_Itens.PerfilWindow();
+                perfilWindow.Show();
+                perfilOn = true;
+            }
+
         }
 
         public static void closePerfil()
         {
-            perfilWindow.Close();
-            perfilWindow = null;
-            menuWindow.Show();
+            if (perfilOn)
+            {
+                perfilWindow.Close();
+                perfilWindow = null;
+                menuWindow.Focus();
+                perfilOn = false;
+            }
         }
-
+        #endregion
         //Fechar e abrir janela de perfil
+        #region agendamento
         public static void startAgendamento()
         {
-            menuWindow.Hide();
-            agendamentoWindow = new Agendamento.Agendamento();
-            agendamentoWindow.Show();
+            if (agendamentoOn)
+            {
+                agendamentoWindow.Focus();
+            }
+            else
+            {
+                agendamentoWindow = new Agendamento.Agendamento();
+                agendamentoWindow.Show();
+                agendamentoOn = true;
+            }
         }
 
         public static void closeAgendamento()
         {
-            agendamentoWindow.Close();
-            agendamentoWindow = null;
-            menuWindow.Show();
+            if (agendamentoOn)
+            {
+                agendamentoWindow.Close();
+                agendamentoWindow = null;
+                menuWindow.Focus();
+                agendamentoOn = false;
+            }
         }
+        #endregion
+        //Fechar e abrir janela de seleção de itens que a instituição aceita
+        #region itens
+        public static void startItens()
+        {
+            if (itensOn)
+            {
+                itensWindow.Focus();
+            }
+            else
+            {
+                closePerfil();
+                itensWindow = new Perfil_Itens.ItensWindow();
+                itensWindow.Show();
+                itensOn = true;
+            }
+        }
+
+        public static void closeItens()
+        {
+            if (itensOn)
+            {
+                itensWindow.Close();
+                itensWindow = null;
+                menuWindow.Focus();
+                agendamentoOn = false;
+            }
+        }
+
+        #endregion
     }
 }

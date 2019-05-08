@@ -108,6 +108,9 @@
     <Compile Include="Views\MenuWindow.xaml.cs">
       <DependentUpon>MenuWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Perfil_Itens\ItensWindow.xaml.cs">
+      <DependentUpon>ItensWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Perfil_Itens\PerfilWindow.xaml.cs">
       <DependentUpon>PerfilWindow.xaml</DependentUpon>
     </Compile>
@@ -143,6 +146,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Patterns\TextBoxPattern.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Perfil_Itens\ItensWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

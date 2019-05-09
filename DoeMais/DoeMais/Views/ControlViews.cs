@@ -8,7 +8,7 @@ namespace DoeMais.Views
 {
     class ControlViews
     {
-        //Todos os controles de janelas devem ser feitps por aqui
+        //Todos os controles de janelas devem ser feitos por aqui
         #region Váriaveis de acesso
         public static String tipoDeAcesso = "";
         public static String idFunc = "";
@@ -17,7 +17,7 @@ namespace DoeMais.Views
         public static String cnpj = "";
         #endregion
 
-        //variaveis para iniciar e controlar as telas
+        #region variaveis para iniciar e controlar as telas
         private static MenuWindow menuWindow;
         //perfil
         private static Perfil_Itens.PerfilWindow perfilWindow;
@@ -28,7 +28,10 @@ namespace DoeMais.Views
         //Itens
         private static Perfil_Itens.ItensWindow itensWindow;
         private static bool itensOn = false;
-
+        //AgendamentoDetalhes
+        private static Agendamento.AgendamentoDetalhes agendamentoDetalhesWindow;
+        private static bool agendamentoDetalhesOn = false;
+        #endregion
         public ControlViews()
         {
             //colocar validações e mudar de acordo com adm ou não
@@ -53,6 +56,8 @@ namespace DoeMais.Views
             {
                 perfilWindow = new Perfil_Itens.PerfilWindow();
                 perfilWindow.Show();
+                perfilWindow.Left = menuWindow.Left + 50;
+                perfilWindow.Top = menuWindow.Top - 50;
                 perfilOn = true;
             }
 
@@ -69,10 +74,48 @@ namespace DoeMais.Views
             }
         }
         #endregion
-        //Fechar e abrir janela de perfil
+        //Fechar e abrir janela de seleção de itens que a instituição aceita
+        #region itens
+        public static void startItens()
+        {
+            if (itensOn)
+            {
+                itensWindow.Focus();
+            }
+            else
+            {
+                double x = perfilWindow.Left;
+                double y = perfilWindow.Top;
+                closePerfil();
+                itensWindow = new Perfil_Itens.ItensWindow();
+                itensWindow.Show();
+                itensWindow.Left = x;
+                itensWindow.Top = y;
+                itensOn = true;
+            }
+        }
+
+        public static void closeItens()
+        {
+            if (itensOn)
+            {
+                itensWindow.Close();
+                itensWindow = null;
+                menuWindow.Focus();
+                itensOn = false;
+            }
+        }
+
+        #endregion
+        //Fechar e abrir janela de agendamento
         #region agendamento
         public static void startAgendamento()
         {
+            if (agendamentoDetalhesOn)
+            {
+                agendamentoDetalhesWindow.Focus();
+                return;
+            }
             if (agendamentoOn)
             {
                 agendamentoWindow.Focus();
@@ -81,6 +124,8 @@ namespace DoeMais.Views
             {
                 agendamentoWindow = new Agendamento.Agendamento();
                 agendamentoWindow.Show();
+                agendamentoDetalhesWindow.Left = menuWindow.Left + 50;
+                agendamentoDetalhesWindow.Top = menuWindow.Top - 50;
                 agendamentoOn = true;
             }
         }
@@ -96,34 +141,46 @@ namespace DoeMais.Views
             }
         }
         #endregion
-        //Fechar e abrir janela de seleção de itens que a instituição aceita
-        #region itens
-        public static void startItens()
+        //Fechar e abrir janela de agendamentoDetalhes
+        #region agendamento detalhes
+        public static void startAgendamentoDetalhes()
         {
-            if (itensOn)
+            if (agendamentoDetalhesOn)
             {
-                itensWindow.Focus();
+                agendamentoDetalhesWindow.Focus();
             }
             else
             {
-                closePerfil();
-                itensWindow = new Perfil_Itens.ItensWindow();
-                itensWindow.Show();
-                itensOn = true;
+                double x = agendamentoWindow.Left;
+                double y = agendamentoWindow.Top;
+                closeAgendamento();
+                agendamentoDetalhesWindow = new Agendamento.AgendamentoDetalhes();
+                agendamentoDetalhesWindow.Show();
+                agendamentoDetalhesWindow.Top = y;
+                agendamentoDetalhesWindow.Left = x;
+                agendamentoDetalhesOn = true;
             }
         }
 
-        public static void closeItens()
+        public static void closeAgendamentoDetalhes()
         {
-            if (itensOn)
+            if (agendamentoDetalhesOn)
             {
-                itensWindow.Close();
-                itensWindow = null;
+                agendamentoDetalhesWindow.Close();
+                agendamentoDetalhesWindow = null;
                 menuWindow.Focus();
-                agendamentoOn = false;
+                agendamentoDetalhesOn = false;
             }
         }
 
+        public static void voltarAgendamentoDetalhes()
+        {
+            if (agendamentoDetalhesOn)
+            {
+                closeAgendamentoDetalhes();
+                startAgendamento();
+            }
+        }
         #endregion
     }
 }

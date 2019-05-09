@@ -15,20 +15,20 @@ using System.Windows.Shapes;
 namespace DoeMais.Views.Agendamento
 {
     /// <summary>
-    /// Lógica interna para Agendamento.xaml
+    /// Interaction logic for AgendamentoDetalhes.xaml
     /// </summary>
-    public partial class Agendamento : Window
+    public partial class AgendamentoDetalhes : Window
     {
-        public Agendamento()
+        public AgendamentoDetalhes()
         {
             InitializeComponent();
             MinimizeWindow.Click += (s, e) => WindowState = WindowState.Minimized;
-            CloseApp.Click += (s, e) => ControlViews.closeAgendamento();
+            CloseApp.Click += (s, e) => ControlViews.closeAgendamentoDetalhes();
         }
 
-        private void Button_detalhes_Click(object sender, RoutedEventArgs e)
+        private void Button_voltar_Click(object sender, RoutedEventArgs e)
         {
-            ControlViews.startAgendamentoDetalhes();
+            ControlViews.voltarAgendamentoDetalhes();
         }
     }
 }

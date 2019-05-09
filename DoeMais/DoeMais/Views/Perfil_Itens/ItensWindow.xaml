@@ -1,31 +1,32 @@
-﻿<Window x:Class="DoeMais.Views.Perfil_Itens.ItensWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="DoeMais - Perfil"
-        Height="450" 
-        Width="600"
-        Background="White"
-        ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen"
-        WindowStyle="None">
+﻿<Window
+    x:Class="DoeMais.Views.Perfil_Itens.ItensWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="DoeMais - Perfil"
+    Width="600"
+    Height="450"
+    Background="White"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="30" />
     </WindowChrome.WindowChrome>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="50" />
+            <RowDefinition />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="35"/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="280"/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="35"/>
+            <ColumnDefinition Width="35" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="280" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="35" />
         </Grid.ColumnDefinitions>
-
+        <!--  barra superior  -->
         <Grid
             Grid.ColumnSpan="5"
             VerticalAlignment="Top"
@@ -59,43 +60,51 @@
                     TabIndex="0" />
             </StackPanel>
         </Grid>
-        <!--labels-->
-        <Label Grid.Column="1"
-               Grid.Row="1"
-               Content="Item:"
-               Margin="0 0 8 0"
-               VerticalAlignment="Center"
-               HorizontalAlignment="Right"/>
-        <!--textbox-->
-        <TextBox Grid.Column="2"
-                 Grid.Row="1"
-                 Name="textBox_itemNome"/>
-        <!--buttons-->
-        <Button Grid.Column="3"
-                Grid.Row="1"
-                Content="Buscar"
-                Margin="8"
-                Style="{StaticResource button_blue}"/>
-        
-        <Button Grid.Column="2"
-                Width="100"
-                Name="button_salvar"
-                Margin="0 5 0 5"
-                Grid.Row="3"
-                Content="Salvar"/>
-        <!--listview-->
-        <ListView Grid.Column="1" 
-                  Grid.ColumnSpan="3" 
-                  Grid.Row="2"
-                  Name="listView_itensPreCadastro">
+        <!--  labels  -->
+        <Label
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="0,0,8,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Content="Item:" />
+        <!--  textbox  -->
+        <TextBox
+            Name="textBox_itemNome"
+            Grid.Row="1"
+            Grid.Column="2" />
+        <!--  buttons  -->
+        <Button
+            Grid.Row="1"
+            Grid.Column="3"
+            Margin="8"
+            Content="Buscar"
+            Style="{StaticResource button_blue}" />
+
+        <Button
+            Name="button_salvar"
+            Grid.Row="3"
+            Grid.Column="2"
+            Width="100"
+            Margin="0,5,0,5"
+            Content="Salvar" />
+        <!--  listview  -->
+        <ListView
+            Name="listView_itensPreCadastro"
+            Grid.Row="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="3">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Itens" Width="200"/>
-                    <GridViewColumn Header="Tipo" Width="200"/>
-                    <GridViewColumn Header="Tipo de medida" Width="auto"/>
+                    <GridViewColumn Width="200" Header="Itens" />
+                    <GridViewColumn Width="200" Header="Tipo" />
+                    <GridViewColumn Width="auto" Header="Tipo de medida" />
                 </GridView>
             </ListView.View>
-            <ListViewItem Content="teste" />
+            <ListViewItem>
+                teste
+            </ListViewItem>
+
         </ListView>
     </Grid>
 </Window>

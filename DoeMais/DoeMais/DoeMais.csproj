@@ -104,6 +104,9 @@
     <Compile Include="Views\Agendamento\Agendamento.xaml.cs">
       <DependentUpon>Agendamento.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Agendamento\AgendamentoDetalhes.xaml.cs">
+      <DependentUpon>AgendamentoDetalhes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ControlViews.cs" />
     <Compile Include="Views\MenuWindow.xaml.cs">
       <DependentUpon>MenuWindow.xaml</DependentUpon>
@@ -118,6 +121,10 @@
       <DependentUpon>TimePicker.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\Agendamento\Agendamento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Agendamento\AgendamentoDetalhes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -7,8 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:userControls="clr-namespace:DoeMais.Views.UserControls"
     Title="DoeMais - Perfil"
-    Height="450" 
     Width="600"
+    Height="450"
     Background="White"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
@@ -32,7 +32,7 @@
             <ColumnDefinition />
             <ColumnDefinition Width="10" />
         </Grid.ColumnDefinitions>
-
+        <!--  barra superior  -->
         <Grid
             Grid.ColumnSpan="3"
             VerticalAlignment="Top"
@@ -81,7 +81,8 @@
             Grid.Column="1"
             BorderBrush="#444444"
             BorderThickness="2"
-            Header="Dados Gerais">
+            Header="Dados Gerais"
+            IsHitTestVisible="False">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition />
@@ -247,7 +248,8 @@
             Grid.Column="1"
             BorderBrush="#444444"
             BorderThickness="2"
-            Header="Endereço">
+            Header="Endereço"
+            IsHitTestVisible="False">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition />
@@ -394,7 +396,8 @@
             Grid.Column="1"
             BorderBrush="#444444"
             BorderThickness="2"
-            Header="Resumo da Empresa">
+            Header="Resumo da Empresa"
+            IsHitTestVisible="False">
             <TextBox
                 Name="textBox_resumoDaEmpresa"
                 BorderBrush="#444444"
@@ -415,7 +418,8 @@
                 Name="groupBox_retiraEmDomicilio"
                 BorderBrush="#444444"
                 BorderThickness="2"
-                Header="Retira em domicílio?">
+                Header="Retira em domicílio?"
+                IsHitTestVisible="false">
 
                 <Grid>
                     <Grid.RowDefinitions>
@@ -443,7 +447,8 @@
                 Grid.Column="1"
                 BorderBrush="#444444"
                 BorderThickness="2"
-                Header="Horário de funcionamento">
+                Header="Horário de funcionamento"
+                IsHitTestVisible="False">
 
                 <Grid>
                     <Grid.RowDefinitions>
@@ -541,16 +546,16 @@
                 <ColumnDefinition />
                 <ColumnDefinition Width="100" />
             </Grid.ColumnDefinitions>
-            
+
             <Button
                 Name="button_selecionarItens"
                 Width="100"
                 Margin="0,2,0,5"
                 HorizontalAlignment="Left"
+                Click="button_selecionarItens_Click"
                 Content="Selecionar Itens"
                 Style="{StaticResource button_blue}"
-                TabIndex="22" 
-                Click="button_selecionarItens_Click"/>
+                TabIndex="22" />
 
             <Button
                 Name="button_salvar"

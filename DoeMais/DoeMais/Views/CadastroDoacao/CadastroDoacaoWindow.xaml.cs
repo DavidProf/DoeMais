@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace DoeMais.Views.Agendamento
+namespace DoeMais.Views.CadastroDoacao
 {
     /// <summary>
-    /// Lógica interna para AgendamentoMaisWindow.xaml
+    /// Lógica interna para CadastroDoacaoWindow.xaml
     /// </summary>
-    public partial class AgendamentoMaisWindow : Window
+    public partial class CadastroDoacaoWindow : Window
     {
-        public AgendamentoMaisWindow()
+        public CadastroDoacaoWindow()
         {
             InitializeComponent();
         }

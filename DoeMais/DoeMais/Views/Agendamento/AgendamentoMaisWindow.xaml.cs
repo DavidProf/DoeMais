@@ -15,15 +15,13 @@ using System.Windows.Shapes;
 namespace DoeMais.Views.Agendamento
 {
     /// <summary>
-    /// Lógica interna para Agendamento.xaml
+    /// Lógica interna para AgendamentoMaisWindow.xaml
     /// </summary>
-    public partial class Agendamento : Window
+    public partial class AgendamentoMaisWindow : Window
     {
-        public Agendamento()
+        public AgendamentoMaisWindow()
         {
             InitializeComponent();
-            MinimizeWindow.Click += (s, e) => WindowState = WindowState.Minimized;
-            CloseApp.Click += (s, e) => ControlViews.closeAgendamento();
         }
     }
 }

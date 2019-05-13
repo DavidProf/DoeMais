@@ -23,7 +23,7 @@ namespace DoeMais.Views
         private static Perfil_Itens.PerfilWindow perfilWindow;
         private static bool perfilOn = false;
         //Agendamento
-        private static Agendamento.Agendamento agendamentoWindow;
+        private static Agendamento.AgendamentoWindow agendamentoWindow;
         private static bool agendamentoOn = false;
         //Itens
         private static Perfil_Itens.ItensWindow itensWindow;
@@ -122,7 +122,7 @@ namespace DoeMais.Views
             }
             else
             {
-                agendamentoWindow = new Agendamento.Agendamento();
+                agendamentoWindow = new Agendamento.AgendamentoWindow();
                 agendamentoWindow.Show();
                 agendamentoDetalhesWindow.Left = menuWindow.Left + 50;
                 agendamentoDetalhesWindow.Top = menuWindow.Top - 50;

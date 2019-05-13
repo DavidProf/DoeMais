@@ -101,8 +101,11 @@
     <Compile Include="Controller\Util\ValidaCPF.cs" />
     <Compile Include="Controller\Util\VerificarSeCpfOuCnpj.cs" />
     <Compile Include="Controller\Validar.cs" />
-    <Compile Include="Views\Agendamento\Agendamento.xaml.cs">
-      <DependentUpon>Agendamento.xaml</DependentUpon>
+    <Compile Include="Views\Agendamento\AgendamentoMaisWindow.xaml.cs">
+      <DependentUpon>AgendamentoMaisWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Agendamento\AgendamentoWindow.xaml.cs">
+      <DependentUpon>AgendamentoWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Agendamento\AgendamentoDetalhes.xaml.cs">
       <DependentUpon>AgendamentoDetalhes.xaml</DependentUpon>
@@ -120,7 +123,11 @@
     <Compile Include="Views\UserControls\TimePicker.xaml.cs">
       <DependentUpon>TimePicker.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\Agendamento\Agendamento.xaml">
+    <Page Include="Views\Agendamento\AgendamentoMaisWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Agendamento\AgendamentoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

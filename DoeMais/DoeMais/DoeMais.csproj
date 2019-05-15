@@ -110,6 +110,9 @@
     <Compile Include="Views\CadastroDoacao\CadastroDoacaoWindow.xaml.cs">
       <DependentUpon>CadastroDoacaoWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CadastroFuncionario\CadastroFuncionarioWindow.xaml.cs">
+      <DependentUpon>CadastroFuncionarioWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ControlViews.cs" />
     <Compile Include="Views\MenuWindow.xaml.cs">
       <DependentUpon>MenuWindow.xaml</DependentUpon>
@@ -132,6 +135,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CadastroDoacao\CadastroDoacaoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CadastroFuncionario\CadastroFuncionarioWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

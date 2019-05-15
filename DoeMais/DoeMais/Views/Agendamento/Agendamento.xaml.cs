@@ -17,9 +17,9 @@ namespace DoeMais.Views.Agendamento
     /// <summary>
     /// Lógica interna para Agendamento.xaml
     /// </summary>
-    public partial class AgendamentoWindow : Window
+    public partial class Agendamento : Window
     {
-        public AgendamentoWindow()
+        public Agendamento()
         {
             InitializeComponent();
             MinimizeWindow.Click += (s, e) => WindowState = WindowState.Minimized;

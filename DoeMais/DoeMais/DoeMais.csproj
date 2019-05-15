@@ -116,6 +116,9 @@
     <Compile Include="Views\CheckIn\CheckInWindow.xaml.cs">
       <DependentUpon>CheckInWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ConsultaFuncionario\ConsultaFuncionarioWindow.xaml.cs">
+      <DependentUpon>ConsultaFuncionarioWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ControlViews.cs" />
     <Compile Include="Views\MenuWindow.xaml.cs">
       <DependentUpon>MenuWindow.xaml</DependentUpon>
@@ -146,6 +149,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CheckIn\CheckInWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ConsultaFuncionario\ConsultaFuncionarioWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

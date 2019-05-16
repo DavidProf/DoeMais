@@ -113,6 +113,9 @@
     <Compile Include="Views\CadastroFuncionario\CadastroFuncionarioWindow.xaml.cs">
       <DependentUpon>CadastroFuncionarioWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CheckIn\CheckInMaisWindow.xaml.cs">
+      <DependentUpon>CheckInMaisWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CheckIn\CheckInWindow.xaml.cs">
       <DependentUpon>CheckInWindow.xaml</DependentUpon>
     </Compile>
@@ -145,6 +148,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CadastroFuncionario\CadastroFuncionarioWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CheckIn\CheckInMaisWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

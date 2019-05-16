@@ -22,8 +22,6 @@ namespace DoeMais.Views.CheckIn
         public CheckInWindow()
         {
             InitializeComponent();
-            MinimizeWindow.Click += (s, e) => WindowState = WindowState.Minimized;
-            CloseApp.Click += (s, e) => ControlViews.closePerfil();
         }
     }
 }

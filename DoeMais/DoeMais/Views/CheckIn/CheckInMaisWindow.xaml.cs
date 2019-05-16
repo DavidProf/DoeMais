@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace DoeMais.Views.CadastroFuncionario
+namespace DoeMais.Views.CheckIn
 {
     /// <summary>
-    /// Interaction logic for CadastroFuncionarioWindow.xaml
+    /// Interaction logic for CheckInMaisWindow.xaml
     /// </summary>
-    public partial class CadastroFuncionarioWindow : Window
+    public partial class CheckInMaisWindow : Window
     {
-        public CadastroFuncionarioWindow()
+        public CheckInMaisWindow()
         {
             InitializeComponent();
         }

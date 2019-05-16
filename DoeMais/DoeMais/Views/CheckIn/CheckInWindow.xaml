@@ -127,14 +127,17 @@
             </Grid>
         </GroupBox>
         <!--  listview  -->
-        <ListView Grid.Row="2">
+        <ListView Grid.Row="2" Margin="5,0,5,0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="120" Header="Data" />
-                    <GridViewColumn Width="300" Header="Nome do doador ou instituição" />
-                    <GridViewColumn Width="150" Header="CPF/CNPJ" />
+                    <GridViewColumn Width="60" Header="Cód" />
+                    <GridViewColumn Width="80" Header="Data" />
+                    <GridViewColumn Width="160" Header="Nome do doador/Instituição" />
+                    <GridViewColumn Width="100" Header="CPF/CNPJ" />
+                    <GridViewColumn Width="150" Header="Retira em domicílio" />
                 </GridView>
             </ListView.View>
+
         </ListView>
         <!--  button  -->
         <Button

@@ -132,7 +132,7 @@
     <Compile Include="Views\Perfil_Itens\PerfilWindow.xaml.cs">
       <DependentUpon>PerfilWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserControls\TimePicker.xaml.cs">
+    <Compile Include="Views\_Assets\UserControls\TimePicker.xaml.cs">
       <DependentUpon>TimePicker.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\Agendamento\Agendamento.xaml">
@@ -179,15 +179,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Patterns\ButtonPattern.xaml">
+    <Page Include="Views\_Assets\Patterns\ButtonPattern.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Patterns\CheckBoxPattern.xaml">
+    <Page Include="Views\_Assets\Patterns\CheckBoxPattern.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Patterns\TextBoxPattern.xaml">
+    <Page Include="Views\_Assets\Patterns\TextBoxPattern.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -199,7 +199,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\UserControls\TimePicker.xaml">
+    <Page Include="Views\_Assets\UserControls\TimePicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -370,7 +370,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Views\imgs\logo.png" />
+    <Resource Include="Views\_Assets\imgs\logo.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="DoeMais.ico" />

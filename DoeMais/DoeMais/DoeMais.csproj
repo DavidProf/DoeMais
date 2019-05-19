@@ -126,6 +126,9 @@
       <DependentUpon>ConsultaFuncionarioWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ControlViews.cs" />
+    <Compile Include="Views\Mensagens\MensagensWindow.xaml.cs">
+      <DependentUpon>MensagensWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MenuWindow.xaml.cs">
       <DependentUpon>MenuWindow.xaml</DependentUpon>
     </Compile>
@@ -182,6 +185,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Mensagens\MensagensWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MenuWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -412,5 +419,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

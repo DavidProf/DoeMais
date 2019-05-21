@@ -101,8 +101,8 @@
     <Compile Include="Controller\Util\ValidaCPF.cs" />
     <Compile Include="Controller\Util\VerificarSeCpfOuCnpj.cs" />
     <Compile Include="Controller\Validar.cs" />
-    <Compile Include="Views\Agendamento\AgendamentoWindow.xaml.cs">
-      <DependentUpon>AgendamentoWindow.xaml</DependentUpon>
+    <Compile Include="Views\Agendamento\Agendamento.xaml.cs">
+      <DependentUpon>Agendamento.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Agendamento\AgendamentoDetalhes.xaml.cs">
       <DependentUpon>AgendamentoDetalhes.xaml</DependentUpon>
@@ -110,7 +110,31 @@
     <Compile Include="Views\CadastroDoacao\CadastroDoacaoWindow.xaml.cs">
       <DependentUpon>CadastroDoacaoWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CadastroFuncionario\CadastroFuncionarioWindow.xaml.cs">
+      <DependentUpon>CadastroFuncionarioWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CheckIn\CheckInMaisWindow.xaml.cs">
+      <DependentUpon>CheckInMaisWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CheckIn\CheckInWindow.xaml.cs">
+      <DependentUpon>CheckInWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConsultaFuncionario\ConsultaFuncionarioDetalhesWindow.xaml.cs">
+      <DependentUpon>ConsultaFuncionarioDetalhesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConsultaFuncionario\ConsultaFuncionarioWindow.xaml.cs">
+      <DependentUpon>ConsultaFuncionarioWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ControlViews.cs" />
+    <Compile Include="Views\ItensArmazenados\ItensArmazenadosWindow.xaml.cs">
+      <DependentUpon>ItensArmazenadosWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Mensagens\MensagensMaisWindow.xaml.cs">
+      <DependentUpon>MensagensMaisWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Mensagens\MensagensWindow.xaml.cs">
+      <DependentUpon>MensagensWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MenuWindow.xaml.cs">
       <DependentUpon>MenuWindow.xaml</DependentUpon>
     </Compile>
@@ -120,10 +144,10 @@
     <Compile Include="Views\Perfil_Itens\PerfilWindow.xaml.cs">
       <DependentUpon>PerfilWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserControls\TimePicker.xaml.cs">
+    <Compile Include="Views\_Assets\UserControls\TimePicker.xaml.cs">
       <DependentUpon>TimePicker.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\Agendamento\AgendamentoWindow.xaml">
+    <Page Include="Views\Agendamento\Agendamento.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -132,6 +156,30 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CadastroDoacao\CadastroDoacaoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CadastroFuncionario\CadastroFuncionarioWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CheckIn\CheckInMaisWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CheckIn\CheckInWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ConsultaFuncionario\ConsultaFuncionarioDetalhesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ConsultaFuncionario\ConsultaFuncionarioWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ItensArmazenados\ItensArmazenadosWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -147,19 +195,27 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Mensagens\MensagensMaisWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Mensagens\MensagensWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MenuWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Patterns\ButtonPattern.xaml">
+    <Page Include="Views\_Assets\Patterns\ButtonPattern.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Patterns\CheckBoxPattern.xaml">
+    <Page Include="Views\_Assets\Patterns\CheckBoxPattern.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Patterns\TextBoxPattern.xaml">
+    <Page Include="Views\_Assets\Patterns\TextBoxPattern.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -171,7 +227,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\UserControls\TimePicker.xaml">
+    <Page Include="Views\_Assets\UserControls\TimePicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -342,7 +398,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Views\imgs\logo.png" />
+    <Resource Include="Views\_Assets\imgs\logo.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="DoeMais.ico" />
@@ -377,5 +433,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,140 @@
+﻿<Window x:Class="DoeMais.Views.Mensagens.MensagensWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DoeMais.Views.Mensagens"
+        mc:Ignorable="d"
+        Title="DoeMais - Mensagens"
+    Width="600"
+    Height="450"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="30" />
+    </WindowChrome.WindowChrome>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="38"/>
+            <RowDefinition />
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <!--  barra superior  -->
+        <Grid
+            Grid.ColumnSpan="5"
+            VerticalAlignment="Top"
+            Background="#4a7dcb">
+            <Label Foreground="White">DoeMais - Mensagens</Label>
+            <StackPanel
+                Height="30"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Orientation="Horizontal"
+                WindowChrome.IsHitTestVisibleInChrome="True">
+                <Button
+                    Name="MinimizeWindow"
+                    Width="30"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Content="-"
+                    FontSize="16"
+                    Foreground="White"
+                    IsTabStop="False"
+                    Style="{x:Null}" />
+                <Button
+                    Name="CloseApp"
+                    Width="30"
+                    Background="#fa4141"
+                    BorderThickness="0"
+                    Content="X"
+                    Foreground="White"
+                    IsTabStop="False"
+                    Style="{x:Null}"
+                    TabIndex="0" />
+            </StackPanel>
+        </Grid>
+        <!--  label  -->
+        <Label
+                    Content="De:"
+                    Grid.Row="1" 
+                    Grid.Column="0"
+                    Margin="10" />
+        <Label
+                    Grid.Row="1"
+                    Margin="10"
+                    Content="Até:" 
+                    Grid.Column="1"/>
+        <Label
+                    Grid.Row="1"
+                    Margin="10"
+                    Content="CPF/CNPJ:"
+                    Grid.Column="2" />
+        <!--  textbox  -->
+        <TextBox
+                    Name="textBox_dataDe"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Width="100"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Margin="10" />
+        <TextBox
+                    Name="textBox_dataAte"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Width="100"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Margin="10" />
+        <TextBox
+                    Name="textBox_CPFCNPJ"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Width="210"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Margin="10" />
+        <!--checkbox-->
+        <CheckBox
+                   Name="checkBox_filtroData"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Content="Ativar filtro por data"
+                   Grid.Row="2"
+                   Grid.ColumnSpan="2"/>
+        <!--button-->
+        <Button
+                   Name="button_buscar"
+                   Grid.Row="2"
+                   Grid.Column="2"
+                   Width="100"
+                   Height="30"
+                   Content="Buscar Doador" />
+        <Button
+                   Name="button_voltar"
+                   Grid.Row="4"
+                   Width="100"
+                   Height="30"
+                   Content="Voltar"
+                   Grid.ColumnSpan="4" />
+        <!--listview-->
+        <ListView Grid.Row="3" Grid.ColumnSpan="4">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="100" Header="Cód. Doador" />
+                    <GridViewColumn Width="200" Header="Nome do Doador" />
+                    <GridViewColumn Width="300" Header="Última Mensagem" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        
+    </Grid>
+</Window>

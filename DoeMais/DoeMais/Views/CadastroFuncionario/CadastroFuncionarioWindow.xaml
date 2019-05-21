@@ -1,0 +1,294 @@
+﻿<Window
+    x:Class="DoeMais.Views.CadastroFuncionario.CadastroFuncionarioWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:DoeMais.Views.CadastroFuncionario"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="DoeMais - Cadastro de funcionários"
+    Width="600"
+    Height="450"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="30" />
+    </WindowChrome.WindowChrome>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="130" />
+            <RowDefinition Height="80" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions />
+        <!--  barra superior  -->
+        <Grid
+            Grid.ColumnSpan="5"
+            VerticalAlignment="Top"
+            Background="#4a7dcb">
+            <Label Foreground="White">DoeMais - Cadastro de funcionário</Label>
+            <StackPanel
+                Height="30"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Orientation="Horizontal"
+                WindowChrome.IsHitTestVisibleInChrome="True">
+                <Button
+                    Name="MinimizeWindow"
+                    Width="30"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Content="-"
+                    FontSize="16"
+                    Foreground="White"
+                    IsTabStop="False"
+                    Style="{x:Null}" />
+                <Button
+                    Name="CloseApp"
+                    Width="30"
+                    Background="#fa4141"
+                    BorderThickness="0"
+                    Content="X"
+                    Foreground="White"
+                    IsTabStop="False"
+                    Style="{x:Null}"
+                    TabIndex="0" />
+            </StackPanel>
+        </Grid>
+        <!--  groupbox de dados pessoais  -->
+        <GroupBox
+            Grid.Row="1"
+            BorderBrush="#444444"
+            BorderThickness="2"
+            Header="Dados pessoais">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <!--  label  -->
+                <Label
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="Nome:" />
+                <Label
+                    Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="CPF:" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="RG:" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="4"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="Data de nascimento:" />
+                <!--  textbox  -->
+                <TextBox
+                    Name="textBox_nome"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="4" />
+                <TextBox
+                    Name="textBox_cpf"
+                    Grid.Row="1"
+                    Grid.Column="1" />
+                <TextBox
+                    Name="textBox_rg"
+                    Grid.Row="1"
+                    Grid.Column="3" />
+                <TextBox
+                    Name="textBox_dataDeNascimento"
+                    Grid.Row="1"
+                    Grid.Column="5" />
+            </Grid>
+        </GroupBox>
+        <!--  groupbox endereço  -->
+        <GroupBox
+            Grid.Row="2"
+            BorderBrush="#444444"
+            BorderThickness="2"
+            Header="Endereço">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <!--  labels  -->
+                <Label
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="CEP:" />
+                <Label
+                    Grid.Column="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="Logradouro:" />
+                <Label
+                    Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="UF:" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="Cidade:" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="4"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="Bairro:" />
+                <Label
+                    Grid.Row="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="Nº:" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="Complemento:" />
+                <!--  textbox  -->
+                <TextBox
+                    Name="textBox_cep"
+                    Grid.Column="1"
+                    Margin="0,2,0,2"
+                    HorizontalContentAlignment="Center" />
+                <TextBox
+                    Name="textBox_uf"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="0,2,0,2"
+                    HorizontalContentAlignment="Center"
+                    IsTabStop="False" />
+                <TextBox
+                    Name="textBox_numero"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Margin="0,2,0,2"
+                    HorizontalContentAlignment="Center" />
+                <TextBox
+                    Name="textBox_logradouro"
+                    Grid.Column="3"
+                    Grid.ColumnSpan="3"
+                    Margin="0,2,15,2"
+                    HorizontalContentAlignment="Center"
+                    IsTabStop="False" />
+                <TextBox
+                    Name="textBox_cidade"
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    Margin="0,2,0,2"
+                    HorizontalContentAlignment="Center"
+                    IsTabStop="False" />
+                <TextBox
+                    Name="textBox_bairro"
+                    Grid.Row="1"
+                    Grid.Column="5"
+                    Margin="0,2,10,2"
+                    HorizontalContentAlignment="Center"
+                    IsTabStop="False" />
+                <TextBox
+                    Name="textBox_complemento"
+                    Grid.Row="2"
+                    Grid.Column="3"
+                    Grid.ColumnSpan="3"
+                    Margin="0,2,5,2"
+                    HorizontalContentAlignment="Center" />
+            </Grid>
+        </GroupBox>
+        <!--  groupboc contato  -->
+        <GroupBox
+            Grid.Row="3"
+            BorderBrush="#444"
+            BorderThickness="2"
+            Header="Contato:">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="130" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="130" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <!--  label  -->
+                <Label
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="Telefone*:" />
+                <Label
+                    Grid.Column="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="Telefone:" />
+                <Label
+                    Grid.Column="4"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="E-mail:" />
+                <!--  textbox  -->
+                <TextBox Name="textBox_telefoneA" Grid.Column="1" />
+                <TextBox Name="textBox_telefoneB" Grid.Column="3" />
+                <TextBox Name="textBox_emaiç" Grid.Column="5" />
+            </Grid>
+        </GroupBox>
+        <!--  Groupbox administrador  -->
+        <GroupBox
+            Grid.Row="4"
+            BorderBrush="#444"
+            BorderThickness="2"
+            Header="Marque aqui se este será um administrador">
+            <!--  checkbox alterar  -->
+            <CheckBox
+                Name="checkBox_administrador"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="Administrador" />
+        </GroupBox>
+        <!--  button  -->
+        <Button
+            Name="button_cadastrar"
+            Grid.Row="5"
+            Width="100"
+            Height="30"
+            Margin="200,0,0,0"
+            Content="Cadastrar" />
+        <Button
+            Name="button_cancelar"
+            Grid.Row="5"
+            Width="100"
+            Height="30"
+            Margin="0,0,200,0"
+            Content="Cancelar" />
+    </Grid>
+</Window>

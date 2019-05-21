@@ -126,6 +126,9 @@
       <DependentUpon>ConsultaFuncionarioWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ControlViews.cs" />
+    <Compile Include="Views\ItensArmazenados\ItensArmazenadosWindow.xaml.cs">
+      <DependentUpon>ItensArmazenadosWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Mensagens\MensagensMaisWindow.xaml.cs">
       <DependentUpon>MensagensMaisWindow.xaml</DependentUpon>
     </Compile>
@@ -173,6 +176,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ConsultaFuncionario\ConsultaFuncionarioWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ItensArmazenados\ItensArmazenadosWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

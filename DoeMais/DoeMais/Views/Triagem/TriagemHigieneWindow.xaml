@@ -11,8 +11,7 @@
     Background="White"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
-    WindowStyle="None"
-    mc:Ignorable="d">
+    WindowStyle="None">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="30" />
     </WindowChrome.WindowChrome>

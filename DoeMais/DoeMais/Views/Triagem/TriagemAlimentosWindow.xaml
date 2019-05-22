@@ -1,0 +1,155 @@
+﻿<Window x:Class="DoeMais.Views.Triagem.TriagemAlimentosWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DoeMais.Views.Triagem"
+        mc:Ignorable="d"
+        Title="DoeMais - Triagem Alimentos"
+    Width="400"
+    Height="300"
+    Background="White"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="30" />
+    </WindowChrome.WindowChrome>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <!--  barra superior  -->
+        <Grid
+            Grid.ColumnSpan="4"
+            VerticalAlignment="Top"
+            Background="#4a7dcb">
+            <Label Foreground="White">DoeMais - Triagem</Label>
+            <StackPanel
+                Height="30"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Orientation="Horizontal"
+                WindowChrome.IsHitTestVisibleInChrome="True">
+                <Button
+                    Name="MinimizeWindow"
+                    Width="30"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Content="-"
+                    FontSize="16"
+                    Foreground="White"
+                    IsTabStop="False"
+                    Style="{x:Null}" />
+                <Button
+                    Name="CloseApp"
+                    Width="30"
+                    Background="#fa4141"
+                    BorderThickness="0"
+                    Content="X"
+                    Foreground="White"
+                    IsTabStop="False"
+                    Style="{x:Null}"
+                    TabIndex="0" />
+            </StackPanel>
+        </Grid>
+        <!--labels-->
+        <Label
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Content="Item:" />
+        <Label
+            Grid.Row="1"
+            Grid.Column="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Content="Qtd. sem Triagem:" />
+        <Label
+            Grid.Row="2"
+            Grid.Column="2"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Left"
+            Margin="20,0,0,0"
+            VerticalAlignment="Center"
+            Content="kg/L" />
+        <Label
+            Grid.Row="3"
+            Content="Data de validade:"
+            VerticalAlignment="Center"/>
+        <Label
+            Grid.Row="3"
+            Grid.Column="2"
+            Content="Qtd. para Triar:"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"/>
+        <!--textbox-->
+        <TextBox
+            Name="textBox_item"
+            Grid.Row="1" 
+            Grid.Column="1"
+            IsTabStop="False"
+            IsReadOnly="True" />
+        <TextBox
+            Name="textBox_semTriagem"
+            Grid.Row="1"
+            Grid.Column="3"
+            Width="90"
+            IsTabStop="False"
+            IsReadOnly="True"/>
+        <TextBox
+            Name="textBox_medida"
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            Width="100"
+            HorizontalAlignment="Right"/>
+        <TextBox
+            Name="textBox_validade"
+            Grid.Row="3"
+            Grid.Column="1" />
+        <TextBox
+            Name="textBox_qtd"
+            Grid.Row="3"
+            Grid.Column="4"
+            Width="90"/>
+        <!--button-->
+        <Button
+            Name="button_voltar"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Grid.Row="4"
+            Content="Voltar"
+            Width="100"
+            Height="30"
+            HorizontalAlignment="Center"/>
+        <Button
+            Name="button_limpar"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Grid.Row="4"
+            Content="Limpar"
+            Width="100"
+            Height="30"
+            HorizontalAlignment="Center" />
+        <Button
+            Name="button_triar"
+            Grid.Column="2"
+            Grid.ColumnSpan="3"
+            Grid.Row="4"
+            Content="Triar"
+            Width="100"
+            Height="30"
+            Margin="20,0,0,0"
+            HorizontalAlignment="Center" />
+    </Grid>
+</Window>

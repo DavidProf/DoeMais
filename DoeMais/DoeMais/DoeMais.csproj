@@ -144,6 +144,12 @@
     <Compile Include="Views\Perfil_Itens\PerfilWindow.xaml.cs">
       <DependentUpon>PerfilWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Triagem\TriagemAlimentosWindow.xaml.cs">
+      <DependentUpon>TriagemAlimentosWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Triagem\TriagemHigieneWindow.xaml.cs">
+      <DependentUpon>TriagemHigieneWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\_Assets\UserControls\TimePicker.xaml.cs">
       <DependentUpon>TimePicker.xaml</DependentUpon>
     </Compile>
@@ -204,6 +210,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MenuWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Triagem\TriagemAlimentosWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Triagem\TriagemHigieneWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

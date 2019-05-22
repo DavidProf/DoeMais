@@ -1,0 +1,222 @@
+﻿<Window x:Class="DoeMais.Views.Triagem.TriagemRoupasWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DoeMais.Views.Triagem"
+        mc:Ignorable="d"
+         Title="DoeMais - Triagem Roupas"
+    Width="400"
+    Height="450"
+    Background="White"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="30" />
+    </WindowChrome.WindowChrome>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <!--  barra superior  -->
+        <Grid
+            Grid.ColumnSpan="4"
+            VerticalAlignment="Top"
+            Background="#4a7dcb">
+            <Label Foreground="White">DoeMais - Triagem</Label>
+            <StackPanel
+                Height="30"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Orientation="Horizontal"
+                WindowChrome.IsHitTestVisibleInChrome="True">
+                <Button
+                    Name="MinimizeWindow"
+                    Width="30"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Content="-"
+                    FontSize="16"
+                    Foreground="White"
+                    IsTabStop="False"
+                    Style="{x:Null}" />
+                <Button
+                    Name="CloseApp"
+                    Width="30"
+                    Background="#fa4141"
+                    BorderThickness="0"
+                    Content="X"
+                    Foreground="White"
+                    IsTabStop="False"
+                    Style="{x:Null}"
+                    TabIndex="0" />
+            </StackPanel>
+        </Grid>
+        <!--label-->
+        <Label
+            Grid.Row="1"
+            Content="Item:"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center" />
+        <Label
+            Grid.Row="1"
+            Grid.Column="2"
+            Content="Qtd. sem Triagem:"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center" />
+        <!--textbox-->
+        <TextBox
+            Name="textBox_item"
+            Grid.Row="1"
+            Grid.Column="1"
+            IsTabStop="False"
+            IsReadOnly="True" />
+        <TextBox
+            Name="textBox_qtd"
+            Grid.Row="1"
+            Grid.Column="3"
+            IsTabStop="False"
+            IsReadOnly="True" />
+        <!--groupbox gênero-->
+        <GroupBox
+            Name="groupBox_genero"
+            Grid.Row="2"
+            Grid.ColumnSpan="4"
+            BorderBrush="#444"
+            BorderThickness="2"
+            Header="Gênero"
+            Margin="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <!--radio button-->
+                <RadioButton
+                    Name="radioButton_masculino"
+                    Content="Masculino"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"/>
+                <RadioButton
+                    Name="radioButton_feminino"
+                    Content="Feminino"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Grid.Column="1"/>
+                <RadioButton
+                    Name="radioButton_unissex"
+                    Content="Unissex"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Grid.Column="2" />
+            </Grid>
+        </GroupBox>
+        <!--groupbox faixa etária-->
+        <GroupBox
+            Name="groupBox_idade"
+            Grid.Row="3"
+            Grid.ColumnSpan="4"
+            BorderBrush="#444"
+            BorderThickness="2"
+            Header="Faixa etária"
+            Margin="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <!--radio button-->
+                <RadioButton
+                    Name="radioButton_adulto"
+                    Content="Adulto"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center" />
+                <RadioButton
+                    Name="radioButton_infantil"
+                    Content="Infantil"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Grid.Column="1"/>
+            </Grid>
+        </GroupBox>
+        <!--groupbox condição-->
+        <GroupBox
+            Name="groupBox_condicao"
+            Grid.Row="4"
+            Grid.ColumnSpan="4"
+            BorderBrush="#444"
+            BorderThickness="2"
+            Header="Condição"
+            Margin="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <!--radio button-->
+                <RadioButton
+                     Name="radioButton_novo"
+                     Content="Novo"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center" />
+                <RadioButton
+                    Name="radioButton_seminovo"
+                    Content="Seminovo"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="1" />
+                <RadioButton
+                    Name="radioButton_usado"
+                    Content="Usado"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="2" />
+            </Grid>
+        </GroupBox>
+        <!--button-->
+        <Button
+            Name="button_voltar"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Grid.Row="6"
+            Content="Voltar"
+            Width="100"
+            Height="30"
+            HorizontalAlignment="Center"/>
+        <Button
+            Name="button_limpar"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Grid.Row="6"
+            Content="Limpar"
+            Width="100"
+            Height="30"
+            Margin="110,0,0,0"
+            HorizontalAlignment="Left" />
+        <Button
+            Name="button_triar"
+            Grid.Column="2"
+            Grid.ColumnSpan="3"
+            Grid.Row="6"
+            Content="Triar"
+            Width="100"
+            Height="30"
+            Margin="50,0,0,0"
+            HorizontalAlignment="Center" />
+    </Grid>
+</Window>

@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DoeMais.Views.Triagem"
         mc:Ignorable="d"
-         Title="DoeMais - Triagem Roupas"
-    Width="400"
-    Height="450"
+        Title="DoeMais - Triagem Higiene"
+    Width="600"
+    Height="500"
     Background="White"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
@@ -18,17 +18,18 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
+            <RowDefinition Height="50"/>
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto" />
             <ColumnDefinition />
-            <ColumnDefinition Width="auto" />
+            <ColumnDefinition />
+            <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <!--  barra superior  -->
@@ -68,15 +69,27 @@
         <!--label-->
         <Label
             Grid.Row="1"
-            Content="Item:"
             HorizontalAlignment="Center"
-            VerticalAlignment="Center" />
+            VerticalAlignment="Center"
+            Content="Item:" />
         <Label
             Grid.Row="1"
             Grid.Column="2"
-            Content="Qtd. sem Triagem:"
             HorizontalAlignment="Center"
-            VerticalAlignment="Center" />
+            VerticalAlignment="Center"
+            Content="Qtd. sem Triagem" />
+        <Label
+            Grid.Row="5"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Grid.ColumnSpan="2"
+            Content="Tamanho:" />
+        <Label
+            Grid.Row="6"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Grid.ColumnSpan="2"
+            Content="Qtd. para Triar:" />
         <!--textbox-->
         <TextBox
             Name="textBox_item"
@@ -85,20 +98,35 @@
             IsTabStop="False"
             IsReadOnly="True" />
         <TextBox
-            Name="textBox_qtd"
+            Name="textBox_qtdSemTriagem"
             Grid.Row="1"
             Grid.Column="3"
             IsTabStop="False"
             IsReadOnly="True" />
+        <TextBox
+            Name="textBox_tamanho"
+            Grid.Row="5"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Center"
+            Width="100"
+            TabIndex="9" />
+        <TextBox
+            Name="textBox_qtdParaTriar"
+            Grid.Row="6"
+            Grid.Column="1"
+            Grid.ColumnSpan="2" 
+            HorizontalAlignment="Center"
+            Width="100"
+            TabIndex="10" />
         <!--groupbox gênero-->
         <GroupBox
-            Name="groupBox_genero"
             Grid.Row="2"
             Grid.ColumnSpan="4"
             BorderBrush="#444"
             BorderThickness="2"
-            Header="Gênero"
-            Margin="5">
+            Margin="5"
+            Header="Gênero">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -108,32 +136,34 @@
                 <!--radio button-->
                 <RadioButton
                     Name="radioButton_masculino"
-                    Content="Masculino"
+                    Content="Masculino" 
+                    HorizontalAlignment="Center" 
                     VerticalAlignment="Center"
-                    HorizontalAlignment="Center"/>
+                    TabIndex="1" />
                 <RadioButton
+                    Grid.Column="1"
                     Name="radioButton_feminino"
                     Content="Feminino"
-                    VerticalAlignment="Center"
                     HorizontalAlignment="Center"
-                    Grid.Column="1"/>
+                    VerticalAlignment="Center" 
+                    TabIndex="2" />
                 <RadioButton
+                    Grid.Column="2"
                     Name="radioButton_unissex"
                     Content="Unissex"
-                    VerticalAlignment="Center"
                     HorizontalAlignment="Center"
-                    Grid.Column="2" />
+                    VerticalAlignment="Center" 
+                    TabIndex="3" />
             </Grid>
         </GroupBox>
         <!--groupbox faixa etária-->
         <GroupBox
-            Name="groupBox_idade"
             Grid.Row="3"
             Grid.ColumnSpan="4"
             BorderBrush="#444"
             BorderThickness="2"
-            Header="Faixa etária"
-            Margin="5">
+            Margin="5"
+            Header="Faixa etária">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -142,26 +172,27 @@
                 <!--radio button-->
                 <RadioButton
                     Name="radioButton_adulto"
-                    Content="Adulto"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center" />
+                    Content="Adulto" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    TabIndex="4" />
                 <RadioButton
+                    Grid.Column="1"
                     Name="radioButton_infantil"
                     Content="Infantil"
-                    VerticalAlignment="Center"
                     HorizontalAlignment="Center"
-                    Grid.Column="1"/>
+                    VerticalAlignment="Center" 
+                    TabIndex="5" />
             </Grid>
         </GroupBox>
         <!--groupbox condição-->
         <GroupBox
-            Name="groupBox_condicao"
             Grid.Row="4"
             Grid.ColumnSpan="4"
             BorderBrush="#444"
             BorderThickness="2"
-            Header="Condição"
-            Margin="5">
+            Margin="5"
+            Header="Condição">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -170,53 +201,49 @@
                 </Grid.ColumnDefinitions>
                 <!--radio button-->
                 <RadioButton
-                     Name="radioButton_novo"
-                     Content="Novo"
-                     HorizontalAlignment="Center"
-                     VerticalAlignment="Center" />
+                    Name="radioButton_novo"
+                    Content="Novo" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    TabIndex="6" />
                 <RadioButton
+                    Grid.Column="1"
                     Name="radioButton_seminovo"
                     Content="Seminovo"
                     HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Grid.Column="1" />
+                    VerticalAlignment="Center" 
+                    TabIndex="7" />
                 <RadioButton
+                    Grid.Column="2"
                     Name="radioButton_usado"
                     Content="Usado"
                     HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Grid.Column="2" />
+                    VerticalAlignment="Center" 
+                    TabIndex="8" />
             </Grid>
         </GroupBox>
         <!--button-->
         <Button
             Name="button_voltar"
+            Grid.Row="7"
             Grid.Column="0"
-            Grid.ColumnSpan="2"
-            Grid.Row="6"
-            Content="Voltar"
             Width="100"
             Height="30"
-            HorizontalAlignment="Center"/>
-        <Button
-            Name="button_limpar"
-            Grid.Column="1"
-            Grid.ColumnSpan="2"
-            Grid.Row="6"
-            Content="Limpar"
-            Width="100"
-            Height="30"
-            Margin="110,0,0,0"
-            HorizontalAlignment="Left" />
+            Content="Voltar" />
         <Button
             Name="button_triar"
-            Grid.Column="2"
-            Grid.ColumnSpan="3"
-            Grid.Row="6"
-            Content="Triar"
+            Grid.Row="7"
+            Grid.Column="3"
             Width="100"
             Height="30"
-            Margin="50,0,0,0"
-            HorizontalAlignment="Center" />
+            Content="Triar" />
+        <Button
+            Name="button_limpar"
+            Grid.Row="7"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Width="100"
+            Height="30"
+            Content="Limpar" />
     </Grid>
 </Window>

@@ -19,18 +19,53 @@ namespace DoeMais.Views
 
         #region variaveis para iniciar e controlar as telas
         private static MenuWindow menuWindow;
+
         //perfil
         private static Perfil_Itens.PerfilWindow perfilWindow;
         private static bool perfilOn = false;
+
         //Agendamento
         private static Agendamento.Agendamento agendamentoWindow;
         private static bool agendamentoOn = false;
+
         //Itens
         private static Perfil_Itens.ItensWindow itensWindow;
         private static bool itensOn = false;
+
         //AgendamentoDetalhes
         private static Agendamento.AgendamentoDetalhes agendamentoDetalhesWindow;
         private static bool agendamentoDetalhesOn = false;
+
+        // CadastroFuncionario
+        private static CadastroFuncionario.CadastroFuncionarioWindow cadastroFuncionarioWindow;
+        private static bool cadastroFuncOn = false;
+
+        // ConsultaFuncionario
+        private static ConsultaFuncionario.ConsultaFuncionarioWindow consultaFuncionarioWindow;
+        private static bool consultaFuncOn = false;
+
+        // Mensagens
+        private static Mensagens.MensagensWindow mensagensWindow;
+        private static bool mensagensOn = false;
+
+        // Propaganda
+        private static Propaganda.PropagandasWindow propagandasWindow;
+        private static bool propagandaOn = false;
+
+        //RegistroDoacao
+        private static CadastroDoacao.CadastroDoacaoWindow cadastroDoacaoWindow;
+        private static bool cadastroDoacaoOn = false;
+
+        // Check-in
+        private static CheckIn.CheckInWindow checkInWindow;
+        private static bool checkInOn = false;
+
+        // Estoque
+        private static ItensArmazenados.ItensArmazenadosWindow itensArmazenadosWindow;
+        private static bool estoqueOn = false;
+
+        // Triagem
+
         #endregion
         public ControlViews()
         {
@@ -74,6 +109,7 @@ namespace DoeMais.Views
             }
         }
         #endregion
+
         //Fechar e abrir janela de seleção de itens que a instituição aceita
         #region itens
         public static void startItens()
@@ -107,6 +143,127 @@ namespace DoeMais.Views
         }
 
         #endregion
+
+        // Fechar e abrir janela de cadastro de funcionários
+        #region cadastroFuncionario
+
+        public static void startCadastroFunc()
+        {
+            if (cadastroFuncOn)
+            {
+                cadastroFuncionarioWindow.Focus();
+            }
+            else
+            {
+                cadastroFuncionarioWindow = new CadastroFuncionario.CadastroFuncionarioWindow();
+                cadastroFuncionarioWindow.Show();
+                cadastroFuncionarioWindow.Left = menuWindow.Left + 50;
+                cadastroFuncionarioWindow.Top = menuWindow.Top - 50;
+                cadastroFuncOn = true;
+            }
+        }
+
+        public static void closeCadastroFunc()
+        {
+            cadastroFuncionarioWindow.Close();
+            cadastroFuncionarioWindow = null;
+            menuWindow.Focus();
+            cadastroFuncOn = false;
+        }
+
+        #endregion
+
+        // Fechar e abrir janela de consulta de funcionários 
+        #region consultaFuncionario
+
+        public static void startConsultaFunc()
+        {
+            if (consultaFuncOn)
+            {
+                consultaFuncionarioWindow.Focus();
+            }
+            else
+            {
+                consultaFuncionarioWindow = new ConsultaFuncionario.ConsultaFuncionarioWindow();
+                consultaFuncionarioWindow.Show();
+                consultaFuncionarioWindow.Left = menuWindow.Left + 50;
+                consultaFuncionarioWindow.Top = menuWindow.Top - 50;
+                consultaFuncOn = true;
+            }
+        }
+
+        public static void closeConsultaFunc()
+        {
+            consultaFuncionarioWindow.Close();
+            consultaFuncionarioWindow = null;
+            menuWindow.Focus();
+            consultaFuncOn = false;
+        }
+
+        #endregion
+
+        // Fechar e abrir janela de consulta de funcionários - detalhes
+
+        // Fechar e abrir janela de mensagens
+        #region mensagens
+        
+        public static void startMensagens()
+        {
+            if (mensagensOn)
+            {
+                mensagensWindow.Focus();
+            }
+            else
+            {
+                mensagensWindow = new Mensagens.MensagensWindow();
+                mensagensWindow.Show();
+                mensagensWindow.Left = menuWindow.Left + 50;
+                mensagensWindow.Top = menuWindow.Top - 50;
+                mensagensOn = true;
+            }
+        }
+
+        public static void closeMensagens()
+        {
+            mensagensWindow.Close();
+            mensagensWindow = null;
+            menuWindow.Focus();
+            mensagensOn = false;
+        }
+
+        #endregion
+
+        // Fechar e abrir janela de mensagensMais
+
+        // Fechar e abrir janela de propaganda
+        #region propagandas
+
+        public static void startPropagandas()
+        {
+            if (propagandaOn)
+            {
+                propagandasWindow.Focus();
+            }
+            else
+            {
+                propagandasWindow = new Propaganda.PropagandasWindow();
+                propagandasWindow.Show();
+                propagandasWindow.Left = menuWindow.Left + 50;
+                propagandasWindow.Top = propagandasWindow.Top - 50;
+                propagandaOn = true;
+            }
+        }
+
+        public static void closePropagandas()
+        {
+            propagandasWindow.Close();
+            propagandasWindow = null;
+            menuWindow.Focus();
+            propagandaOn = false;
+        }
+
+        #endregion
+
         //Fechar e abrir janela de agendamento
         #region agendamento
         public static void startAgendamento()
@@ -141,6 +298,7 @@ namespace DoeMais.Views
             }
         }
         #endregion
+
         //Fechar e abrir janela de agendamentoDetalhes
         #region agendamento detalhes
         public static void startAgendamentoDetalhes()
@@ -182,5 +340,107 @@ namespace DoeMais.Views
             }
         }
         #endregion
+
+        // Fechar e abrir janela de registro de doações
+        #region registroDoacao
+
+        public static void startRegistroDoacao()
+        {
+            if (cadastroDoacaoOn)
+            {
+                cadastroDoacaoWindow.Focus();
+            }
+            else
+            {
+                cadastroDoacaoWindow = new CadastroDoacao.CadastroDoacaoWindow();
+                cadastroDoacaoWindow.Show();
+                cadastroDoacaoWindow.Left = menuWindow.Left + 50;
+                cadastroDoacaoWindow.Top = menuWindow.Top - 50;
+                cadastroDoacaoOn = true;
+            }
+        }
+
+        public static void closeRegistroDoacao()
+        {
+            if (cadastroDoacaoOn)
+            {
+                cadastroDoacaoWindow.Close();
+                cadastroDoacaoWindow = null;
+                menuWindow.Focus();
+                cadastroDoacaoOn = false;
+            }
+        }
+
+        #endregion
+
+        // Fechar e abrir janela de check-in
+        #region checkIn
+
+        public static void startCheckIn()
+        {
+            if (checkInOn)
+            {
+                checkInWindow.Focus();
+            }
+            else
+            {
+                checkInWindow = new CheckIn.CheckInWindow();
+                checkInWindow.Show();
+                checkInWindow.Left = menuWindow.Left + 50;
+                checkInWindow.Top = menuWindow.Top - 50;
+                checkInOn = true;
+            }
+        }
+
+        public static void closeCheckIn()
+        {
+            if (checkInOn)
+            {
+                checkInWindow.Close();
+                checkInWindow = null;
+                menuWindow.Focus();
+                checkInOn = false;
+            }
+        }
+
+        #endregion
+
+        // Fechar e abrir janela de checkInMais
+
+        // Fechar e abrir janela de estoque
+        #region estoque
+
+        public static void startEstoque()
+        {
+            if (estoqueOn)
+            {
+                itensArmazenadosWindow.Focus();
+            }
+            else
+            {
+                itensArmazenadosWindow = new ItensArmazenados.ItensArmazenadosWindow();
+                itensArmazenadosWindow.Show();
+                itensArmazenadosWindow.Left = menuWindow.Left + 50;
+                itensArmazenadosWindow.Top = menuWindow.Top - 50;
+                estoqueOn = true;
+            }
+        }
+
+        public static void closeEstoque()
+        {
+            if (estoqueOn)
+            {
+                itensArmazenadosWindow.Close();
+                itensArmazenadosWindow = null;
+                itensArmazenadosWindow.Focus();
+                estoqueOn = false;
+            }
+        }
+
+        #endregion
+
+        // Fechar e abrir janela de triagem
+
+        // Fechar e abrir janela de saída
     }
 }

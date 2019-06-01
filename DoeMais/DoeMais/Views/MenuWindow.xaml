@@ -128,13 +128,13 @@
                     Grid.Row="1"
                     Grid.Column="2"
                     Content="  Cadastrar &#xa;Funcionários"
-                    FontSize="16" />
+                    FontSize="16" Click="button_cadastrarFuncionarios_Click" />
                 <Button
                     Name="button_consultarFuncionarios"
                     Grid.Row="3"
                     Grid.Column="1"
                     Content="  Consultar &#xa;Funcionários"
-                    FontSize="16" />
+                    FontSize="16" Click="button_consultarFuncionarios_Click" />
             </Grid>
 
             <Grid Grid.Row="2" Grid.Column="2">
@@ -158,13 +158,13 @@
                     Grid.Row="1"
                     Grid.Column="1"
                     Content="Mensagens"
-                    FontSize="16" />
+                    FontSize="16" Click="button_mensagens_Click" />
                 <Button
                     Name="button_propaganda"
                     Grid.Row="3"
                     Grid.Column="1"
                     Content="Propaganda"
-                    FontSize="16" />
+                    FontSize="16" Click="button_propaganda_Click" />
                 <Button
                     Name="button_perfil"
                     Grid.Row="5"

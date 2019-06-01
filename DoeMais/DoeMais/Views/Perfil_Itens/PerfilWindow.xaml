@@ -431,13 +431,13 @@
                         Margin="0,5,0,0"
                         Content="Sim"
                         TabIndex="11"
-                        ToolTip="Selecione sim se a instituição retira em dimicílio" Checked="radioButton_retiraSim_Checked" />
+                        ToolTip="Selecione sim se a instituição retira em domicílio" />
                     <RadioButton
                         Name="radioButton_retiraNao"
                         Grid.Row="1"
                         Content="Não"
                         TabIndex="12"
-                        ToolTip="Selecione NÃO se a instituição NÃO retira em dimicílio" />
+                        ToolTip="Selecione NÃO se a instituição NÃO retira em domicílio" />
                 </Grid>
 
             </GroupBox>

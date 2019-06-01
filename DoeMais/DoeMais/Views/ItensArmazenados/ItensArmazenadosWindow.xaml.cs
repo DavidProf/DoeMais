@@ -22,6 +22,8 @@ namespace DoeMais.Views.ItensArmazenados
         public ItensArmazenadosWindow()
         {
             InitializeComponent();
+            MinimizeWindow.Click += (s, e) => WindowState = WindowState.Minimized;
+            CloseApp.Click += (s, e) => ControlViews.closeEstoque();
         }
     }
 }

@@ -22,6 +22,8 @@ namespace DoeMais.Views.Propaganda
         public PropagandasWindow()
         {
             InitializeComponent();
+            MinimizeWindow.Click += (s, e) => WindowState = WindowState.Minimized;
+            CloseApp.Click += (s, e) => ControlViews.closePropagandas();
         }
     }
 }

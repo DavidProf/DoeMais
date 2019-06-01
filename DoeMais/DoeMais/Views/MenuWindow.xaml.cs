@@ -33,7 +33,7 @@ namespace DoeMais.Views
 
         private void button_checkin_Click(object sender, RoutedEventArgs e)
         {
-            
+            ControlViews.startCheckIn();
         }
 
         private void button_checarRetiradas_Click(object sender, RoutedEventArgs e)
@@ -57,5 +57,24 @@ namespace DoeMais.Views
             button_doacoes.Style = Application.Current.FindResource("button_transparent") as Style;
         }
 
+        private void button_cadastrarFuncionarios_Click(object sender, RoutedEventArgs e)
+        {
+            ControlViews.startCadastroFunc();
+        }
+
+        private void button_mensagens_Click(object sender, RoutedEventArgs e)
+        {
+            ControlViews.startMensagens();
+        }
+
+        private void button_propaganda_Click(object sender, RoutedEventArgs e)
+        {
+            ControlViews.startPropagandas();
+        }
+
+        private void button_consultarFuncionarios_Click(object sender, RoutedEventArgs e)
+        {
+            ControlViews.startConsultaFunc();
+        }
     }
 }

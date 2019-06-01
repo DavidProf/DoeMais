@@ -22,6 +22,8 @@ namespace DoeMais.Views.CadastroDoacao
         public CadastroDoacaoWindow()
         {
             InitializeComponent();
+            MinimizeWindow.Click += (s, e) => WindowState = WindowState.Minimized;
+            CloseApp.Click += (s, e) => ControlViews.closeRegistroDoacao();
         }
     }
 }

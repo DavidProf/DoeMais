@@ -22,6 +22,8 @@ namespace DoeMais.Views.ConsultaFuncionario
         public ConsultaFuncionarioWindow()
         {
             InitializeComponent();
+            MinimizeWindow.Click += (s, e) => WindowState = WindowState.Minimized;
+            CloseApp.Click += (s, e) => ControlViews.closeConsultaFunc();
         }
     }
 }

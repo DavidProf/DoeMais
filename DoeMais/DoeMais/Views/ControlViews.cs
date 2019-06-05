@@ -60,6 +60,10 @@ namespace DoeMais.Views
         private static CheckIn.CheckInWindow checkInWindow;
         private static bool checkInOn = false;
 
+        // Check-in Mais
+        private static CheckIn.CheckInMaisWindow checkInMaisWindow;
+        private static bool checkInMaisOn = false;
+
         // Estoque
         private static ItensArmazenados.ItensArmazenadosWindow itensArmazenadosWindow;
         private static bool estoqueOn = false;
@@ -403,9 +407,51 @@ namespace DoeMais.Views
             }
         }
 
+        public static void voltarCheckIn()
+        {
+            if (checkInOn)
+            {
+                closeCheckIn();
+                menuWindow.Focus();
+            }
+        }
+
         #endregion
 
         // Fechar e abrir janela de checkInMais
+        #region checkin mais
+
+        public static void startCheckInMais()
+        {
+            if (checkInMaisOn)
+            {
+                checkInMaisWindow.Focus();
+            }
+            else
+            {
+                double x = checkInWindow.Left;
+                double y = checkInWindow.Top;
+                closeCheckIn();
+                checkInMaisWindow = new CheckIn.CheckInMaisWindow();
+                checkInMaisWindow.Show();
+                checkInMaisWindow.Top = y;
+                checkInMaisWindow.Left = x;
+                checkInMaisOn = true;
+            }
+        }
+
+        public static void closeCheckInMais()
+        {
+            if (checkInMaisOn)
+            {
+                checkInMaisWindow.Close();
+                checkInMaisWindow = null;
+                menuWindow.Focus();
+                checkInMaisOn = false;
+            }
+        }
+
+        #endregion
 
         // Fechar e abrir janela de estoque
         #region estoque
@@ -442,5 +488,22 @@ namespace DoeMais.Views
         // Fechar e abrir janela de triagem
 
         // Fechar e abrir janela de saída
+
+        // Menu de quem não é administrador
+        #region menu comum
+
+        public static void openMenuComum()
+        {
+            menuWindow = new MenuWindow();
+            menuWindow.button_cadastrarFuncionarios.IsEnabled = false;
+            menuWindow.button_cadastrarFuncionarios.Opacity = 0;
+            menuWindow.button_consultarFuncionarios.IsEnabled = false;
+            menuWindow.button_consultarFuncionarios.Opacity = 0;
+            menuWindow.button_perfil.IsEnabled = false;
+            menuWindow.button_perfil.Opacity = 0;
+            menuWindow.Show();
+        }
+
+        #endregion
     }
 }

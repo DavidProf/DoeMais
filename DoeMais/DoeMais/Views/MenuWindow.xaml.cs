@@ -76,5 +76,25 @@ namespace DoeMais.Views
         {
             ControlViews.startConsultaFunc();
         }
+
+        private void button_registrarDoacao_Click(object sender, RoutedEventArgs e)
+        {
+            ControlViews.startRegistroDoacao();
+        }
+
+        private void button_estoque_Click(object sender, RoutedEventArgs e)
+        {
+            ControlViews.startEstoque();
+        }
+
+        private void button_triagem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void button_saida_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

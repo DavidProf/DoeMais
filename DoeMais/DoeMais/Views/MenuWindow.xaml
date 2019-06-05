@@ -206,7 +206,7 @@
                     Grid.Row="1"
                     Grid.Column="1"
                     Content=" Registrar &#xa;  Doação"
-                    FontSize="16" />
+                    FontSize="16" Click="button_registrarDoacao_Click" />
                 <Button
                     Name="button_checarRetiradas"
                     Grid.Row="2"
@@ -244,19 +244,19 @@
                     Grid.Row="1"
                     Grid.Column="1"
                     Content="Estoque"
-                    FontSize="16" />
+                    FontSize="16" Click="button_estoque_Click" />
                 <Button
                     Name="button_triagem"
                     Grid.Row="3"
                     Grid.Column="1"
                     Content="Triagem"
-                    FontSize="16" />
+                    FontSize="16" Click="button_triagem_Click" />
                 <Button
                     Name="button_saida"
                     Grid.Row="5"
                     Grid.Column="1"
                     Content="Saída"
-                    FontSize="16" />
+                    FontSize="16" Click="button_saida_Click" />
             </Grid>
         </Grid>
 

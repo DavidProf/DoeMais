@@ -25,5 +25,15 @@ namespace DoeMais.Views.CheckIn
             MinimizeWindow.Click += (s, e) => WindowState = WindowState.Minimized;
             CloseApp.Click += (s, e) => ControlViews.closeCheckIn();
         }
+
+        private void button_detalhes_Click(object sender, RoutedEventArgs e)
+        {
+            ControlViews.startCheckInMais();
+        }
+
+        private void button_voltar_Click(object sender, RoutedEventArgs e)
+        {
+            ControlViews.voltarCheckIn();
+        }
     }
 }

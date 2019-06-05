@@ -69,6 +69,8 @@ namespace DoeMais.Views
         private static bool estoqueOn = false;
 
         // Triagem
+        private static Triagem.TriagemWindow triagemWindow;
+        private static bool triagemOn = false;
 
         #endregion
         public ControlViews()
@@ -478,7 +480,7 @@ namespace DoeMais.Views
             {
                 itensArmazenadosWindow.Close();
                 itensArmazenadosWindow = null;
-                itensArmazenadosWindow.Focus();
+                menuWindow.Focus();
                 estoqueOn = false;
             }
         }
@@ -486,6 +488,44 @@ namespace DoeMais.Views
         #endregion
 
         // Fechar e abrir janela de triagem
+        #region triagem
+        public static void startTriagem()
+        {
+            if (triagemOn)
+            {
+                triagemWindow.Focus();
+            }
+            else
+            {
+                triagemWindow = new Triagem.TriagemWindow();
+                triagemWindow.Show();
+                triagemWindow.Left = menuWindow.Left + 50;
+                triagemWindow.Top = menuWindow.Top - 50;
+                triagemOn = true;
+            }
+        }
+
+        public static void closeTriagem()
+        {
+            if (triagemOn)
+            {
+                triagemWindow.Close();
+                triagemWindow = null;
+                menuWindow.Focus();
+                triagemOn = false;
+            }
+        }
+
+        public static void voltarTriagem()
+        {
+            if (triagemOn)
+            {
+                closeTriagem();
+                menuWindow.Focus();
+            }
+        }
+
+        #endregion
 
         // Fechar e abrir janela de saída
 

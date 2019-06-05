@@ -156,6 +156,9 @@
     <Compile Include="Views\Triagem\TriagemRoupasWindow.xaml.cs">
       <DependentUpon>TriagemRoupasWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Triagem\TriagemWindow.xaml.cs">
+      <DependentUpon>TriagemWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\_Assets\UserControls\TimePicker.xaml.cs">
       <DependentUpon>TimePicker.xaml</DependentUpon>
     </Compile>
@@ -232,6 +235,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Triagem\TriagemRoupasWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Triagem\TriagemWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

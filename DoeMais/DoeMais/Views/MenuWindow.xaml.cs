@@ -89,7 +89,7 @@ namespace DoeMais.Views
 
         private void button_triagem_Click(object sender, RoutedEventArgs e)
         {
-
+            ControlViews.startTriagem();
         }
 
         private void button_saida_Click(object sender, RoutedEventArgs e)

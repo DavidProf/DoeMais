@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DoeMais.BD;
+using DoeMais.Controller.Objetos;
 
 namespace DoeMais.Views.CadastroDoacao
 {
@@ -24,6 +26,24 @@ namespace DoeMais.Views.CadastroDoacao
             InitializeComponent();
             MinimizeWindow.Click += (s, e) => WindowState = WindowState.Minimized;
             CloseApp.Click += (s, e) => ControlViews.closeRegistroDoacao();
+            DateTime hoje = DateTime.Today;
+            textBox_data.Text = hoje.ToString("dd/MM/yyyy");
+
+            ItemBD itemAction = new ItemBD();
+
+            try
+            {
+                List<Item> itens = itemAction.getItems();
+
+                foreach (var item in itens)
+                {
+                    comboBox_itens.Items.Add(item.Nome);
+                }
+            }
+            catch
+            {
+                comboBox_itens.Items.Add("Erro no servidor");
+            }
         }
 
         private void button_cancelar_Click(object sender, RoutedEventArgs e)

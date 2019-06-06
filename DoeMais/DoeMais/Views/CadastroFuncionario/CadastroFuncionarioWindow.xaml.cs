@@ -49,7 +49,11 @@ namespace DoeMais.Views.CadastroFuncionario
             func.Cpf = textBox_cpf.Text;
             func.DataDeNascimento = Convert.ToDateTime(textBox_dataDeNascimento.Text);
             func.Email = textBox_email.Text;
-            func.IdFuncionario = textBox_cpf.Text;
+
+            Random random = new Random();
+            string randomIdNumber = (random.Next(0, 5000)).ToString();
+
+            func.IdFuncionario = textBox_nome.Text + randomIdNumber;
             func.Logradouro = textBox_logradouro.Text;
             func.Nome = textBox_nome.Text;
             func.Numero = textBox_numero.Text;
@@ -64,34 +68,36 @@ namespace DoeMais.Views.CadastroFuncionario
 
             FuncionarioBD cadastro = new FuncionarioBD();
             string resultado = cadastro.cadastrarFuncionario(func, senhaPadrao);
-            MessageBox.Show("Cadastro realizado com sucesso!");
 
-            textBox_bairro.Clear();
-            textBox_cep.Clear();
-            textBox_cidade.Clear();
-            textBox_complemento.Clear();
-            textBox_cpf.Clear();
-            textBox_dataDeNascimento.Clear();
-            textBox_email.Clear();
-            textBox_logradouro.Clear();
-            textBox_nome.Clear();
-            textBox_numero.Clear();
-            textBox_rg.Clear();
-            textBox_sobrenome.Clear();
-            textBox_telefoneA.Clear();
-            textBox_telefoneB.Clear();
-            textBox_uf.Clear();
-            checkBox_administrador.IsChecked = false;
+            if (resultado != "ERRO")
+            {
+                MessageBox.Show("Cadastro realizado com sucesso!");
+                textBox_bairro.Clear();
+                textBox_cep.Clear();
+                textBox_cidade.Clear();
+                textBox_complemento.Clear();
+                textBox_cpf.Clear();
+                textBox_dataDeNascimento.Clear();
+                textBox_email.Clear();
+                textBox_logradouro.Clear();
+                textBox_nome.Clear();
+                textBox_numero.Clear();
+                textBox_rg.Clear();
+                textBox_sobrenome.Clear();
+                textBox_telefoneA.Clear();
+                textBox_telefoneB.Clear();
+                textBox_uf.Clear();
+                checkBox_administrador.IsChecked = false;
+            }
+            else
+            {
+                MessageBox.Show("Erro no servidor. Por favor, tente novamente");
+            }
         }
 
         private void button_cancelar_Click(object sender, RoutedEventArgs e)
         {
             ControlViews.cancelarCadastroFunc();
-        }
-
-        private void checkBox_administrador_Checked(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void textBox_cep_MouseLeave(object sender, MouseEventArgs e)
@@ -108,13 +114,8 @@ namespace DoeMais.Views.CadastroFuncionario
             }
             catch
             {
-
+                MessageBox.Show("Não foi possível recuperar os dados de endereço no momento");
             }
-        }
-
-        private void textBox_cpf_MouseLeave(object sender, MouseEventArgs e)
-        {
-
         }
     }
 }

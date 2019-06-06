@@ -288,7 +288,7 @@
                 Name="checkBox_administrador"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Content="Administrador" Checked="checkBox_administrador_Checked" />
+                Content="Administrador" />
         </GroupBox>
         <!--  button  -->
         <Button

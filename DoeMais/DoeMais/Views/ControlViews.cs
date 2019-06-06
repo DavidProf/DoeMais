@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DoeMais.Views
 {
@@ -175,6 +176,15 @@ namespace DoeMais.Views
             cadastroFuncionarioWindow = null;
             menuWindow.Focus();
             cadastroFuncOn = false;
+        }
+
+        public static void cancelarCadastroFunc()
+        {
+            if (cadastroFuncOn)
+            {
+                closeCadastroFunc();
+                menuWindow.Focus();
+            }
         }
 
         #endregion

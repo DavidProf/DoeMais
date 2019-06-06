@@ -95,6 +95,7 @@
     <Compile Include="Controller\Objetos\Instituicao.cs" />
     <Compile Include="Controller\Objetos\Item.cs" />
     <Compile Include="Controller\SISTEMA\Login.cs" />
+    <Compile Include="Controller\Util\CriarSenhaPadrao.cs" />
     <Compile Include="Controller\Util\EnderecoDados.cs" />
     <Compile Include="Controller\Util\FormatCnpjCpf.cs" />
     <Compile Include="Controller\Util\ValidaCNPJ.cs" />

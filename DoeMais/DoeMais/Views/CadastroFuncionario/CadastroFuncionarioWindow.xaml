@@ -84,6 +84,11 @@
                     VerticalAlignment="Center"
                     Content="Nome:" />
                 <Label
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="Sobrenome:" 
+                    Grid.Column="3"/>
+                <Label
                     Grid.Row="1"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
@@ -104,19 +109,28 @@
                 <TextBox
                     Name="textBox_nome"
                     Grid.Column="1"
-                    Grid.ColumnSpan="4" />
+                    Grid.ColumnSpan="2"
+                    TabIndex="1"/>
+                <TextBox
+                    Name="textBox_sobrenome"
+                    Grid.Column="4"
+                    Grid.ColumnSpan="2"
+                    TabIndex="2"/>
                 <TextBox
                     Name="textBox_cpf"
                     Grid.Row="1"
-                    Grid.Column="1" />
+                    Grid.Column="1"
+                    TabIndex="3"/>
                 <TextBox
                     Name="textBox_rg"
                     Grid.Row="1"
-                    Grid.Column="3" />
+                    Grid.Column="3"
+                    TabIndex="4"/>
                 <TextBox
                     Name="textBox_dataDeNascimento"
                     Grid.Row="1"
-                    Grid.Column="5" />
+                    Grid.Column="5"
+                    TabIndex="5"/>
             </Grid>
         </GroupBox>
         <!--  groupbox endereço  -->
@@ -182,7 +196,8 @@
                     Name="textBox_cep"
                     Grid.Column="1"
                     Margin="0,2,0,2"
-                    HorizontalContentAlignment="Center" />
+                    HorizontalContentAlignment="Center" MouseLeave="textBox_cep_MouseLeave"
+                    TabIndex="6" />
                 <TextBox
                     Name="textBox_uf"
                     Grid.Row="1"
@@ -259,7 +274,7 @@
                 <!--  textbox  -->
                 <TextBox Name="textBox_telefoneA" Grid.Column="1" />
                 <TextBox Name="textBox_telefoneB" Grid.Column="3" />
-                <TextBox Name="textBox_emaiç" Grid.Column="5" />
+                <TextBox Name="textBox_email" Grid.Column="5" />
             </Grid>
         </GroupBox>
         <!--  Groupbox administrador  -->
@@ -273,7 +288,7 @@
                 Name="checkBox_administrador"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Content="Administrador" />
+                Content="Administrador" Checked="checkBox_administrador_Checked" />
         </GroupBox>
         <!--  button  -->
         <Button
@@ -282,13 +297,13 @@
             Width="100"
             Height="30"
             Margin="200,0,0,0"
-            Content="Cadastrar" />
+            Content="Cadastrar" Click="button_cadastrar_Click" />
         <Button
             Name="button_cancelar"
             Grid.Row="5"
             Width="100"
             Height="30"
             Margin="0,0,200,0"
-            Content="Cancelar" />
+            Content="Cancelar" Click="button_cancelar_Click" />
     </Grid>
 </Window>

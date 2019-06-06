@@ -25,5 +25,10 @@ namespace DoeMais.Views.CadastroDoacao
             MinimizeWindow.Click += (s, e) => WindowState = WindowState.Minimized;
             CloseApp.Click += (s, e) => ControlViews.closeRegistroDoacao();
         }
+
+        private void button_cancelar_Click(object sender, RoutedEventArgs e)
+        {
+            ControlViews.voltarRegistroDoacao();
+        }
     }
 }

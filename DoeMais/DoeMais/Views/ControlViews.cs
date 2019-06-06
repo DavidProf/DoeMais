@@ -387,6 +387,15 @@ namespace DoeMais.Views
             }
         }
 
+        public static void voltarRegistroDoacao()
+        {
+            if (cadastroDoacaoOn)
+            {
+                closeRegistroDoacao();
+                menuWindow.Focus();
+            }
+        }
+
         #endregion
 
         // Fechar e abrir janela de check-in

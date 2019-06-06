@@ -1,5 +1,6 @@
 ﻿<Window x:Class="DoeMais.Views.CadastroDoacao.CadastroDoacaoWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="DoeMais - Cadastro de doações"
     Width="600"
@@ -118,7 +119,14 @@
         <ComboBox Name="comboBox_itens" Grid.Column="1"
                   Grid.Row="3"/>
         <!--numericUpDown-->
-        <Label Content="pôe um numeric aqui" Grid.Row="3" Grid.Column="3"/>
+        <xctk:IntegerUpDown
+            Name="numeric_itens"
+            Grid.Row="3"
+            Grid.Column="3"
+            FormatString="N0"
+            TextAlignment="Center"
+            Minimum="1"
+            Maximum="1000" />
         <!--listview-->
         <ListView Name="listView_itens"
                   Grid.Row="4"
@@ -156,6 +164,6 @@
                 Content="Cancelar"
                 Grid.Column="4"
                 Grid.Row="7"
-                Margin="0 20 0 15"/>
+                Margin="0 20 0 15" Click="button_cancelar_Click"/>
     </Grid>
 </Window>

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DoeMais.BD;
 using DoeMais.Controller.Objetos;
+using DoeMais.Controller.ListViewSettings;
 
 namespace DoeMais.Views.CadastroDoacao
 {
@@ -49,6 +50,18 @@ namespace DoeMais.Views.CadastroDoacao
         private void button_cancelar_Click(object sender, RoutedEventArgs e)
         {
             ControlViews.voltarRegistroDoacao();
+        }
+
+        private void button_adicionarItem_Click(object sender, RoutedEventArgs e)
+        {
+            listView_itens.Items.Add(new ItensCadastroDoacao() { Item = comboBox_itens.Text, Qtd = Convert.ToInt32(numeric_itens.Value) });
+            comboBox_itens.SelectedIndex = -1;
+            numeric_itens.Value = null;
+        }
+
+        private void button_removerItem_Click(object sender, RoutedEventArgs e)
+        {
+            listView_itens.Items.RemoveAt(listView_itens.SelectedIndex);
         }
     }
 }

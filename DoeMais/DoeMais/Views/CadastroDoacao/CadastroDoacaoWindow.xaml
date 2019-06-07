@@ -133,14 +133,14 @@
                   Grid.ColumnSpan="4"
                   Grid.RowSpan="4"
                   Margin="15"
-                  BorderThickness="2">
+                  BorderThickness="2"
+                  ItemsSource="{Binding ItensCadastroDoacao}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Item" Width="250"/>
-                    <GridViewColumn Header="Qtd." Width="100"/>
+                    <GridViewColumn Header="Item" Width="250" DisplayMemberBinding="{Binding Item}"/>
+                    <GridViewColumn Header="Qtd" Width="100" DisplayMemberBinding="{Binding Qtd}"/>
                 </GridView>
             </ListView.View>
-            yrd
         </ListView>
         <!--buttons-->
         <Button Name="button_adicionarItem"
@@ -148,13 +148,13 @@
                 Grid.Column="4"
                 Grid.Row="4"
                 Style="{StaticResource button_blue}"
-                Margin="0 20 0 15"/>
+                Margin="0 20 0 15" Click="button_adicionarItem_Click"/>
         <Button Name="button_removerItem"
                 Content="Remover item"
                 Grid.Column="4"
                 Grid.Row="5"
                 Style="{StaticResource button_blue}"
-                Margin="0 20 0 15"/>
+                Margin="0 20 0 15" Click="button_removerItem_Click"/>
         <Button Name="button_cadastrar"
                 Content="Cadastrar Doação"
                 Grid.Column="4"

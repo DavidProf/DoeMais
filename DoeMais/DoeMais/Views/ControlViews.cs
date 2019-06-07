@@ -216,6 +216,15 @@ namespace DoeMais.Views
             consultaFuncOn = false;
         }
 
+        public static void voltarConsultaFunc()
+        {
+            if (consultaFuncOn)
+            {
+                closeConsultaFunc();
+                menuWindow.Focus();
+            }
+        }
+
         #endregion
 
         // Fechar e abrir janela de consulta de funcionários - detalhes

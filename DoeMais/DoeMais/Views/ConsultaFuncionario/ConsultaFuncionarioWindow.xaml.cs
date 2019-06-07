@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DoeMais.BD;
 
 namespace DoeMais.Views.ConsultaFuncionario
 {
@@ -24,6 +25,33 @@ namespace DoeMais.Views.ConsultaFuncionario
             InitializeComponent();
             MinimizeWindow.Click += (s, e) => WindowState = WindowState.Minimized;
             CloseApp.Click += (s, e) => ControlViews.closeConsultaFunc();
+            textBox_Busca.Opacity = 0;
+        }
+
+        private void button_voltar_Click(object sender, RoutedEventArgs e)
+        {
+            ControlViews.voltarConsultaFunc();
+        }
+
+        private void radioButton_nenhum_Checked(object sender, RoutedEventArgs e)
+        {
+            textBox_Busca.Opacity = 0;
+        }
+
+        private void radioButton_CPF_Checked(object sender, RoutedEventArgs e)
+        {
+            textBox_Busca.Opacity = 1;
+        }
+
+        private void radioButton_Nome_Checked(object sender, RoutedEventArgs e)
+        {
+            textBox_Busca.Opacity = 1;
+        }
+
+        private void button_buscar_Click(object sender, RoutedEventArgs e)
+        {
+            FuncionarioBD getFunc = new FuncionarioBD();
+           // getFunc.getFuncionarios(//nome ou cpf, adicionar checkbox se ativo ou inativo)
         }
     }
 }

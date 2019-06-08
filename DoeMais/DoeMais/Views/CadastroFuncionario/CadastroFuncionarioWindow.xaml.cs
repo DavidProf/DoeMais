@@ -114,7 +114,7 @@ namespace DoeMais.Views.CadastroFuncionario
             }
             catch
             {
-                MessageBox.Show("Não foi possível recuperar os dados de endereço no momento");
+               
             }
         }
     }

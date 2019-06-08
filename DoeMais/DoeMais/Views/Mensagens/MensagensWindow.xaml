@@ -63,11 +63,15 @@
         </Grid>
         <!--  label  -->
         <Label
-                    Content="Data:"
-                    HorizontalAlignment="Center"
+                    Content="De:"
                     Grid.Row="1" 
                     Grid.Column="0"
                     Margin="10" />
+        <Label
+                    Grid.Row="1"
+                    Margin="10"
+                    Content="Até:" 
+                    Grid.Column="1"/>
         <Label
                     Grid.Row="1"
                     Margin="10"
@@ -77,9 +81,17 @@
         <TextBox
                     Name="textBox_dataDe"
                     Grid.Row="1"
+                    Grid.Column="0"
+                    Width="100"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Margin="10" />
+        <TextBox
+                    Name="textBox_dataAte"
+                    Grid.Row="1"
                     Grid.Column="1"
-                    Width="120"
-                    HorizontalAlignment="Center"
+                    Width="100"
+                    HorizontalAlignment="Right"
                     VerticalAlignment="Top"
                     Margin="10" />
         <TextBox
@@ -128,7 +140,7 @@
                 <GridView>
                     <GridViewColumn Width="120" Header="Data" DisplayMemberBinding="{Binding Data}" />
                     <GridViewColumn Width="120" Header="Nome do Doador" DisplayMemberBinding="{Binding Nome}"/>
-                    <GridViewColumn Width="300" Header="Última Mensagem" DisplayMemberBinding="{Binding Mensagem}"/>
+                    <GridViewColumn Width="350" Header="Última Mensagem" DisplayMemberBinding="{Binding Mensagem}"/>
                 </GridView>
             </ListView.View>
         </ListView>

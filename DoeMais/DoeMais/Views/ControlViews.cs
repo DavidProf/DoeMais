@@ -73,6 +73,10 @@ namespace DoeMais.Views
         private static Triagem.TriagemWindow triagemWindow;
         private static bool triagemOn = false;
 
+        // Saída
+        private static Saida.SaidaWindow saidaWindow;
+        private static bool saidaOn = false;
+
         #endregion
         public ControlViews()
         {
@@ -556,6 +560,45 @@ namespace DoeMais.Views
         #endregion
 
         // Fechar e abrir janela de saída
+        #region saida
+
+        public static void startSaida()
+        {
+            if (saidaOn)
+            {
+                saidaWindow.Focus();
+            }
+            else
+            {
+                saidaWindow = new Saida.SaidaWindow();
+                saidaWindow.Show();
+                saidaWindow.Left = menuWindow.Left + 50;
+                saidaWindow.Top = menuWindow.Top - 50;
+                saidaOn = true;
+            }
+        }
+
+        public static void closeSaida()
+        {
+            if (saidaOn)
+            {
+                saidaWindow.Close();
+                saidaWindow = null;
+                menuWindow.Focus();
+                saidaOn = false;
+            }
+        }
+
+        public static void voltarSaida()
+        {
+            if (saidaOn)
+            {
+                closeSaida();
+                menuWindow.Focus();
+            }
+        }
+
+        #endregion
 
         // Menu de quem não é administrador
         #region menu comum

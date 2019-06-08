@@ -52,6 +52,7 @@ namespace DoeMais.Views.ConsultaFuncionario
         {
             FuncionarioBD getFunc = new FuncionarioBD();
            // getFunc.getFuncionarios(//nome ou cpf, adicionar checkbox se ativo ou inativo)
+           // coloca uns if else aqui pra ver isso e ja era
         }
     }
 }

@@ -164,6 +164,9 @@
     <Compile Include="Views\Propagandas\PropagandasWindow.xaml.cs">
       <DependentUpon>PropagandasWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Saida\SaidaWindow.xaml.cs">
+      <DependentUpon>SaidaWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Triagem\TriagemAlimentosWindow.xaml.cs">
       <DependentUpon>TriagemAlimentosWindow.xaml</DependentUpon>
     </Compile>
@@ -240,6 +243,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Propagandas\PropagandasWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Saida\SaidaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -94,7 +94,7 @@ namespace DoeMais.Views
 
         private void button_saida_Click(object sender, RoutedEventArgs e)
         {
-
+            ControlViews.startSaida();
         }
     }
 }

@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DoeMais.BD;
+using DoeMais.Controller.ListViewSettings;
 
 namespace DoeMais.Views.Mensagens
 {
@@ -24,6 +26,45 @@ namespace DoeMais.Views.Mensagens
             InitializeComponent();
             MinimizeWindow.Click += (s, e) => WindowState = WindowState.Minimized;
             CloseApp.Click += (s, e) => ControlViews.closeMensagens();
+            textBox_dataDe.IsEnabled = false;
+            textBox_dataAte.IsEnabled = false;
+        }
+
+        private void button_voltar_Click(object sender, RoutedEventArgs e)
+        {
+            ControlViews.voltarMensagens();
+        }
+
+        private void button_abrirMensagem_Click(object sender, RoutedEventArgs e)
+        {
+            ControlViews.startMensagensMais();
+        }
+
+        private void checkBox_filtroData_Checked(object sender, RoutedEventArgs e)
+        {
+
+            if (checkBox_filtroData.IsChecked == true)
+            {
+                textBox_dataDe.IsEnabled = true;
+                textBox_dataAte.IsEnabled = true;
+            }
+        }
+
+        private void button_buscar_Click(object sender, RoutedEventArgs e)
+        {
+            DoadorBD getDoadorID = new DoadorBD();
+            MensagemBD getMensagens = new MensagemBD();
+
+            if (checkBox_filtroData.IsChecked == false)
+            {
+                String[] doador = getDoadorID.getDoadorId(textBox_CpfCnpj.Text);
+                List<String[]> mensagens = getMensagens.getMensagensDoDoador(Convert.ToInt32(doador[0]));
+
+                foreach (var mensagem in mensagens)
+                {
+                    listView_mensagens.Items.Add(new MensagensRecebidas() { IdDoador = doador[0], Nome = mensagem[1], Mensagem = mensagem[3] });
+                }
+            }
         }
     }
 }

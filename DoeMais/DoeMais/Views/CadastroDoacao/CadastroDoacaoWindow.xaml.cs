@@ -63,5 +63,10 @@ namespace DoeMais.Views.CadastroDoacao
         {
             listView_itens.Items.RemoveAt(listView_itens.SelectedIndex);
         }
+
+        private void button_cadastrar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

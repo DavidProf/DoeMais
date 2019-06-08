@@ -111,7 +111,7 @@
             Grid.Row="5"
             Width="100"
             Height="30"
-            Content="Voltar" />
+            Content="Voltar" Click="button_Voltar_Click" />
         <Button
             Name="button_Enviar"
             Grid.Row="5"

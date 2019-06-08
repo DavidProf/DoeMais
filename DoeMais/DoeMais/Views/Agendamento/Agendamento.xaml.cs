@@ -30,5 +30,12 @@ namespace DoeMais.Views.Agendamento
         {
             ControlViews.startAgendamentoDetalhes();
         }
+
+        private void button_resetarBusca_Click(object sender, RoutedEventArgs e)
+        {
+            textBox_data1.Clear();
+            textBox_data2.Clear();
+            listView_agendamento.Items.Clear();
+        }
     }
 }

@@ -22,6 +22,13 @@ namespace DoeMais.Views.Mensagens
         public MensagensMaisWindow()
         {
             InitializeComponent();
+            MinimizeWindow.Click += (s, e) => WindowState = WindowState.Minimized;
+            CloseApp.Click += (s, e) => ControlViews.closeMensagensMais();
+        }
+
+        private void button_Voltar_Click(object sender, RoutedEventArgs e)
+        {
+            ControlViews.voltarMensagensMais();
         }
     }
 }

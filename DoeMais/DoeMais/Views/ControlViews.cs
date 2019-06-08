@@ -49,6 +49,10 @@ namespace DoeMais.Views
         private static Mensagens.MensagensWindow mensagensWindow;
         private static bool mensagensOn = false;
 
+        // Mensagens Mais
+        private static Mensagens.MensagensMaisWindow mensagensMaisWindow;
+        private static bool mensagensMaisOn = false;
+
         // Propaganda
         private static Propaganda.PropagandasWindow propagandasWindow;
         private static bool propagandaOn = false;
@@ -260,9 +264,60 @@ namespace DoeMais.Views
             mensagensOn = false;
         }
 
+        public static void voltarMensagens()
+        {
+            if (mensagensOn)
+            {
+                closeMensagens();
+                menuWindow.Focus();
+            }
+        }
+
         #endregion
 
         // Fechar e abrir janela de mensagensMais
+        #region mensagensMais
+
+        public static void startMensagensMais()
+        {
+            if (mensagensMaisOn)
+            {
+                mensagensMaisWindow.Focus();
+            }
+            else
+            {
+                double x = mensagensWindow.Left;
+                double y = mensagensWindow.Top;
+                closeMensagens();
+                mensagensMaisWindow = new Mensagens.MensagensMaisWindow();
+                mensagensMaisWindow.Show();
+                mensagensMaisWindow.Top = y;
+                mensagensMaisWindow.Left = x;
+                mensagensMaisOn = true;
+            }
+        }
+
+        public static void closeMensagensMais()
+        {
+            if (mensagensMaisOn)
+            {
+                mensagensMaisWindow.Close();
+                mensagensMaisWindow = null;
+                menuWindow.Focus();
+                mensagensMaisOn = false;
+            }
+        }
+
+        public static void voltarMensagensMais()
+        {
+            if (mensagensMaisOn)
+            {
+                closeMensagensMais();
+                mensagensWindow.Focus();
+            }
+        }
+
+        #endregion
 
         // Fechar e abrir janela de propaganda
         #region propagandas

@@ -73,16 +73,15 @@ namespace DoeMais.Views.Perfil_Itens
                 checkBox_sexta.IsChecked = true;
                 checkBox_sabado.IsChecked = true;
             }
-
-            if (checkBox_alterar.IsChecked == true)
+            else if (instituicao.DiasAbertos == "Segunda a Domingo")
             {
-                groupBox_dadosGerais.IsHitTestVisible = true;
-                textBox_CNPJ.IsReadOnly = true;
-                textBox_razaoSocial.IsReadOnly = true;
-                groupBox_endereco.IsHitTestVisible = true;
-                groupBox_resumoDaEmpresa.IsHitTestVisible = true;
-                groupBox_retiraEmDomicilio.IsHitTestVisible = true;
-                groupBox_horarioDeFuncionamento.IsHitTestVisible = true;
+                checkBox_segunda.IsChecked = true;
+                checkBox_terca.IsChecked = true;
+                checkBox_quarta.IsChecked = true;
+                checkBox_quinta.IsChecked = true;
+                checkBox_sexta.IsChecked = true;
+                checkBox_sabado.IsChecked = true;
+                checkBox_domingo.IsChecked = true;
             }
         }
 
@@ -117,13 +116,76 @@ namespace DoeMais.Views.Perfil_Itens
 
         private void button_salvar_Click(object sender, RoutedEventArgs e)
         {
+            InstituicaoBD edita = new InstituicaoBD();
+            Instituicao instituicao = new Instituicao();
+
+            instituicao.Bairro = textBox_bairro.Text;
+            instituicao.Cep = textBox_CEP.Text;
+            instituicao.Cidade = textBox_cidade.Text;
+            instituicao.Complemento = textBox_complemento.Text;
+            //instituicao.DiasAbertos
+            instituicao.Email = textBox_email.Text;
+            instituicao.HoraAbre = Convert.ToDateTime(timePicker_das.Value);
+            instituicao.HoraFecha = Convert.ToDateTime(timePicker_ate.Value);
+            instituicao.Logradouro = textBox_logradouro.Text;
+            instituicao.NomeFantasia = textBox_nomeFantasia.Text;
+            instituicao.Numero = textBox_numero.Text;
+            instituicao.ResumoEmpresa = textBox_resumoDaEmpresa.Text;
+            instituicao.TelefoneA = textBox_telefoneA.Text;
+            instituicao.TelefoneB = textBox_telefoneB.Text;
+            instituicao.Uf = textBox_UF.Text;
+
+            if (radioButton_retiraSim.IsChecked == true)
+            {
+                instituicao.RetiraDoacao = true;
+            } 
+            else if (radioButton_retiraNao.IsChecked == true)
+            {
+                instituicao.RetiraDoacao = false;
+            }
+
+            if (checkBox_segunda.IsChecked == true && checkBox_terca.IsChecked == true &&
+            checkBox_quarta.IsChecked == true && checkBox_quinta.IsChecked == true &&
+            checkBox_sexta.IsChecked == true)
+            {
+                instituicao.DiasAbertos = "Segunda a Sexta";
+            }
+            else if (checkBox_segunda.IsChecked == true && checkBox_terca.IsChecked == true &&
+            checkBox_quarta.IsChecked == true && checkBox_quinta.IsChecked == true &&
+            checkBox_sexta.IsChecked == true && checkBox_sabado.IsChecked == true)
+            {
+                instituicao.DiasAbertos = "Segunda a Sabado";
+            }
+            else if (checkBox_segunda.IsChecked == true && checkBox_terca.IsChecked == true &&
+            checkBox_quarta.IsChecked == true && checkBox_quinta.IsChecked == true &&
+            checkBox_sexta.IsChecked == true && checkBox_sabado.IsChecked == true && checkBox_domingo.IsChecked == true)
+            {
+                instituicao.DiasAbertos = "Segunda a Domingo";
+            }
+
+            Boolean update = edita.setDadosInstituicao(instituicao);
+
+            if (update)
+            {
+                MessageBox.Show("Atualização realizada com sucesso!");
+            }
+            else
+            {
+                MessageBox.Show("Erro no servidor. Tente novamente mais tarde");
+            }
+        }
+
+        private void checkBox_alterar_Checked(object sender, RoutedEventArgs e)
+        {
             if (checkBox_alterar.IsChecked == true)
             {
-
-            }
-            else if (checkBox_alterar.IsChecked == false)
-            {
-                ControlViews.closePerfil();
+                groupBox_dadosGerais.IsHitTestVisible = true;
+                textBox_CNPJ.IsReadOnly = true;
+                textBox_razaoSocial.IsReadOnly = true;
+                groupBox_endereco.IsHitTestVisible = true;
+                groupBox_resumoDaEmpresa.IsHitTestVisible = true;
+                groupBox_retiraEmDomicilio.IsHitTestVisible = true;
+                groupBox_horarioDeFuncionamento.IsHitTestVisible = true;
             }
         }
     }

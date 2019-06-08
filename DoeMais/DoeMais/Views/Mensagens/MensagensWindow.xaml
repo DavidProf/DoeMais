@@ -63,15 +63,11 @@
         </Grid>
         <!--  label  -->
         <Label
-                    Content="De:"
+                    Content="Data:"
+                    HorizontalAlignment="Center"
                     Grid.Row="1" 
                     Grid.Column="0"
                     Margin="10" />
-        <Label
-                    Grid.Row="1"
-                    Margin="10"
-                    Content="Até:" 
-                    Grid.Column="1"/>
         <Label
                     Grid.Row="1"
                     Margin="10"
@@ -81,17 +77,9 @@
         <TextBox
                     Name="textBox_dataDe"
                     Grid.Row="1"
-                    Grid.Column="0"
-                    Width="100"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Margin="10" />
-        <TextBox
-                    Name="textBox_dataAte"
-                    Grid.Row="1"
                     Grid.Column="1"
-                    Width="100"
-                    HorizontalAlignment="Right"
+                    Width="120"
+                    HorizontalAlignment="Center"
                     VerticalAlignment="Top"
                     Margin="10" />
         <TextBox
@@ -115,9 +103,9 @@
                    Name="button_buscar"
                    Grid.Row="2"
                    Grid.Column="2"
-                   Width="100"
+                   Width="120"
                    Height="30"
-                   Content="Buscar Doador" Click="button_buscar_Click" />
+                   Content="Buscar Mensagens" Click="button_buscar_Click" />
         <Button
                    Name="button_voltar"
                    Grid.Row="4"
@@ -138,8 +126,8 @@
         <ListView Name="listView_mensagens" Grid.Row="3" Grid.ColumnSpan="4" ItemsSource="{Binding MensagensRecebidas}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="100" Header="Cód. Doador" DisplayMemberBinding="{Binding IdDoador}"/>
-                    <GridViewColumn Width="200" Header="Nome do Doador" DisplayMemberBinding="{Binding Nome}"/>
+                    <GridViewColumn Width="120" Header="Data" DisplayMemberBinding="{Binding Data}" />
+                    <GridViewColumn Width="120" Header="Nome do Doador" DisplayMemberBinding="{Binding Nome}"/>
                     <GridViewColumn Width="300" Header="Última Mensagem" DisplayMemberBinding="{Binding Mensagem}"/>
                 </GridView>
             </ListView.View>

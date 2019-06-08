@@ -27,7 +27,14 @@ namespace DoeMais.Views.Mensagens
             MinimizeWindow.Click += (s, e) => WindowState = WindowState.Minimized;
             CloseApp.Click += (s, e) => ControlViews.closeMensagens();
             textBox_dataDe.IsEnabled = false;
-            textBox_dataAte.IsEnabled = false;
+
+            MensagemBD getMensagens = new MensagemBD();
+            List<String[]> mensagens = getMensagens.getMensagens();
+
+            foreach (var mensagem in mensagens)
+            {
+                listView_mensagens.Items.Add(new MensagensRecebidas() { Data = mensagem[2], Nome = mensagem[1], Mensagem = mensagem[3] });
+            }
         }
 
         private void button_voltar_Click(object sender, RoutedEventArgs e)
@@ -46,7 +53,6 @@ namespace DoeMais.Views.Mensagens
             if (checkBox_filtroData.IsChecked == true)
             {
                 textBox_dataDe.IsEnabled = true;
-                textBox_dataAte.IsEnabled = true;
             }
         }
 
@@ -62,8 +68,12 @@ namespace DoeMais.Views.Mensagens
 
                 foreach (var mensagem in mensagens)
                 {
-                    listView_mensagens.Items.Add(new MensagensRecebidas() { IdDoador = doador[0], Nome = mensagem[1], Mensagem = mensagem[3] });
+                    listView_mensagens.Items.Add(new MensagensRecebidas() { Data = mensagem[0], Nome = mensagem[1], Mensagem = mensagem[3] });
                 }
+            }
+            else if (checkBox_filtroData.IsChecked == true)
+            {
+
             }
         }
     }

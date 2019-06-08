@@ -9,6 +9,7 @@ namespace DoeMais.BD
 {
     class MensagemBD : ConectaBD
     {//Classe de conexão ao banco com métodos relacionados às mensagens
+
         public List<String[]> getMensagens()
         {//Retorna uma lista da última mensagem de cada doador ordenado por data
             List<String[]> retorno = new List<String[]>();
@@ -20,7 +21,8 @@ namespace DoeMais.BD
                 " SELECT  " +
                 " tblMensagem.fk_IdDoador, " +
                 " (tblDoador.Nome + ' ' + tblDoador.Sobrenome), " +
-                " tblMensagem.DataDeEnvio " +
+                " tblMensagem.DataDeEnvio, " +
+                " tblMensagem.Texto " +
                 " FROM tblMensagem " +
                 " LEFT JOIN tblDoador " +
                 " ON tblMensagem.fk_IdDoador = tblDoador.IdDoador " +
@@ -40,7 +42,57 @@ namespace DoeMais.BD
                         {
                             dr[0].ToString(),//IdDoador
                             dr[1].ToString(),//Nome Doador
-                            dr[2].ToString()//data de envio
+                            dr[2].ToString(),//data de envio
+                            dr[3].ToString() //texto
+                        };
+                        retorno.Add(info);
+                    }
+                }
+
+                close();
+                return retorno;
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                close();
+                return null;
+            }
+        }
+
+        public List<String[]> getMensagensPorData(String data)
+        {//Retorna uma lista da última mensagem de cada doador ordenado por data
+            List<String[]> retorno = new List<String[]>();
+            try
+            {
+                open();
+                #region CommandText
+                cmd.CommandText =
+                " SELECT  " +
+                " tblMensagem.fk_IdDoador, " +
+                " (tblDoador.Nome + ' ' + tblDoador.Sobrenome), " +
+                " tblMensagem.Texto " +
+                " FROM tblMensagem " +
+                " WHERE tblMensagem.DataDeEnvio LIKE @data " +
+                " LEFT JOIN tblDoador " +
+                " ON tblMensagem.fk_IdDoador = tblDoador.IdDoador " +
+                " WHERE tblMensagem.fk_Cnpj = @cnpj AND (tblMensagem.Lida = 0 or tblMensagem.Lida is null) " +
+                " ORDER BY tblMensagem.DataDeEnvio DESC " +
+                "";
+                cmd.Parameters.AddWithValue("@cnpj", ControlViews.cnpj);
+                cmd.Parameters.AddWithValue("@data", data);
+                #endregion
+
+                dr = cmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        String[] info = new String[]
+                        {
+                            dr[0].ToString(),//IdDoador
+                            dr[1].ToString(),//Nome Doador
+                            dr[2].ToString() //texto
                         };
                         retorno.Add(info);
                     }

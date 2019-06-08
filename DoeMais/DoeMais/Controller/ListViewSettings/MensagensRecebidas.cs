@@ -8,6 +8,8 @@ namespace DoeMais.Controller.ListViewSettings
 {
     class MensagensRecebidas
     {
+        public String Data { get; set; }
+
         public String IdDoador { get; set; }
 
         public String Nome { get; set; }

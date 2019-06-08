@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DoeMais.BD;
+using DoeMais.Controller.Objetos;
 
 namespace DoeMais.Views.ConsultaFuncionario
 {
@@ -51,8 +52,45 @@ namespace DoeMais.Views.ConsultaFuncionario
         private void button_buscar_Click(object sender, RoutedEventArgs e)
         {
             FuncionarioBD getFunc = new FuncionarioBD();
-           // getFunc.getFuncionarios(//nome ou cpf, adicionar checkbox se ativo ou inativo)
-           // coloca uns if else aqui pra ver isso e ja era
+
+            if (radioButton_ativo.IsChecked == true)
+            {
+                if (radioButton_nenhum.IsChecked == true)
+                {
+                    List<Funcionario> funcs = getFunc.getAllFuncionarios(1, 1);
+                    foreach (var func in funcs)
+                    {
+                        listView_funcionarios.Items.Add(new Funcionario() { Cpf = func.Cpf, Nome = func.Nome + " " + func.Sobrenome });
+                    }
+                }
+                else if (radioButton_Nome.IsChecked == true || radioButton_CPF.IsChecked == true)
+                {
+                    List<Funcionario> funcs = getFunc.getFuncionarios(textBox_Busca.Text, 1, 1);
+                    foreach (var func in funcs)
+                    {
+                        listView_funcionarios.Items.Add(new Funcionario() { Cpf = func.Cpf, Nome = func.Nome + " " + func.Sobrenome });
+                    }
+                }
+            } 
+            else if (radioButton_inativo.IsChecked == true)
+            {
+                if (radioButton_nenhum.IsChecked == true)
+                {
+                    List<Funcionario> funcs = getFunc.getAllFuncionarios(0, 0);
+                    foreach (var func in funcs)
+                    {
+                        listView_funcionarios.Items.Add(new Funcionario() { Cpf = func.Cpf, Nome = func.Nome + " " + func.Sobrenome });
+                    }
+                }
+                else if (radioButton_Nome.IsChecked == true || radioButton_CPF.IsChecked == true)
+                {
+                    List<Funcionario> funcs = getFunc.getFuncionarios(textBox_Busca.Text, 0, 0);
+                    foreach (var func in funcs)
+                    {
+                        listView_funcionarios.Items.Add(new Funcionario() { Cpf = func.Cpf, Nome = func.Nome + " " + func.Sobrenome });
+                    }
+                }
+            }
         }
     }
 }

@@ -51,9 +51,9 @@ namespace DoeMais.Views.CadastroFuncionario
             func.Email = textBox_email.Text;
 
             Random random = new Random();
-            string randomIdNumber = (random.Next(0, 5000)).ToString();
+            string randomIdNumber = (random.Next(1000, 9999)).ToString();
 
-            func.IdFuncionario = textBox_nome.Text + randomIdNumber;
+            func.IdFuncionario = textBox_nome.Text.Substring(0, 4) + randomIdNumber;
             func.Logradouro = textBox_logradouro.Text;
             func.Nome = textBox_nome.Text;
             func.Numero = textBox_numero.Text;

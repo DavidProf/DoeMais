@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DoeMais.Controller.ListViewSettings;
+using DoeMais.BD;
 
 namespace DoeMais.Views.Mensagens
 {
@@ -19,11 +21,22 @@ namespace DoeMais.Views.Mensagens
     /// </summary>
     public partial class MensagensMaisWindow : Window
     {
-        public MensagensMaisWindow()
+        public MensagensMaisWindow(String id)
         {
             InitializeComponent();
             MinimizeWindow.Click += (s, e) => WindowState = WindowState.Minimized;
             CloseApp.Click += (s, e) => ControlViews.closeMensagensMais();
+
+            List<String[]> mensagens = new List<String[]>();
+            MensagemBD getMensagem = new MensagemBD();
+
+            mensagens = getMensagem.getMensagensDoDoador(Convert.ToInt32(id));
+
+            foreach (var mensagem in mensagens)
+            {
+               
+            }
+
         }
 
         private void button_Voltar_Click(object sender, RoutedEventArgs e)

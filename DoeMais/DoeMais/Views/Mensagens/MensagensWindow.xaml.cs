@@ -44,7 +44,17 @@ namespace DoeMais.Views.Mensagens
 
         private void button_abrirMensagem_Click(object sender, RoutedEventArgs e)
         {
-            ControlViews.startMensagensMais();
+            MensagensRecebidas mensagem = new MensagensRecebidas();
+
+            try
+            {
+                mensagem = (MensagensRecebidas)listView_mensagens.SelectedItem;
+                ControlViews.startMensagensMais(mensagem.IdDoador);
+            }
+            catch
+            {
+                MessageBox.Show("Por favor, selecione uma mensagem!");
+            }
         }
 
         private void checkBox_filtroData_Checked(object sender, RoutedEventArgs e)

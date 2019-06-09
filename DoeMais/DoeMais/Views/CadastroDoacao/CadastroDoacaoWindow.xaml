@@ -96,7 +96,7 @@
         <TextBox Name="textBox_buscaCPF"
                  Grid.Column="1"
                  Grid.Row="1"
-                 Margin="0 5 0 5"/>
+                 Margin="0 5 0 5" MouseLeave="textBox_buscaCPF_MouseLeave"/>
         <TextBox Name="textBox_data"
                  Grid.Column="4"
                  Grid.Row="1"
@@ -110,11 +110,13 @@
                  Grid.Row="2"
                  Margin="0 5 0 5"/>
         <!--checkox-->
-        <CheckBox Grid.Column="2"
+        <CheckBox 
+                  Name="checkBox_semCad"
+                  Grid.Column="2"
                   Grid.Row="1"
                   Content="Sem Cadastro"
                   HorizontalAlignment="Center"
-                  VerticalAlignment="Center"/>
+                  VerticalAlignment="Center" Checked="checkBox_semCad_Checked"/>
         <!--comobox-->
         <ComboBox Name="comboBox_itens" Grid.Column="1"
                   Grid.Row="3"/>

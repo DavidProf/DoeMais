@@ -66,7 +66,44 @@ namespace DoeMais.Views.CadastroDoacao
 
         private void button_cadastrar_Click(object sender, RoutedEventArgs e)
         {
+            DoadorBD doador = new DoadorBD();
+            String[] dados = doador.getDoadorParaCadastroDeDoacao(textBox_buscaCPF.Text);
 
+            DoacaoBD doacao = new DoacaoBD();
+            String criaDoacao = doacao.addDoacao(Convert.ToInt32(dados[2]), ControlViews.idFunc);
+
+            if (listView_itens.HasItems)
+            {
+                foreach (ItensCadastroDoacao item in listView_itens.ItemsSource)
+                {
+                    Boolean resultado = doacao.addItemNaDoacao(Convert.ToInt32(criaDoacao), item.Item);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, adicione itens para a doação!");
+            }
+        }
+
+        private void textBox_buscaCPF_MouseLeave(object sender, MouseEventArgs e)
+        {
+            DoadorBD doador = new DoadorBD();
+            String[] dados = doador.getDoadorParaCadastroDeDoacao(textBox_buscaCPF.Text);
+            textBox_nome.Text = dados[0];
+            textBox_cpf.Text = dados[1];
+        }
+
+        private void checkBox_semCad_Checked(object sender, RoutedEventArgs e)
+        {
+            if (checkBox_semCad.IsChecked == true)
+            {
+                textBox_buscaCPF.IsReadOnly = true;
+            }
+            else
+            {
+                textBox_cpf.IsReadOnly = true;
+                textBox_nome.IsReadOnly = true;
+            }
         }
     }
 }

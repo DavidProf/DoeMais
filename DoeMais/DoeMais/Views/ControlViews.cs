@@ -321,7 +321,7 @@ namespace DoeMais.Views
         // Fechar e abrir janela de mensagensMais
         #region mensagensMais
 
-        public static void startMensagensMais()
+        public static void startMensagensMais(string id)
         {
             if (mensagensMaisOn)
             {
@@ -332,7 +332,7 @@ namespace DoeMais.Views
                 double x = mensagensWindow.Left;
                 double y = mensagensWindow.Top;
                 closeMensagens();
-                mensagensMaisWindow = new Mensagens.MensagensMaisWindow();
+                mensagensMaisWindow = new Mensagens.MensagensMaisWindow(id);
                 mensagensMaisWindow.Show();
                 mensagensMaisWindow.Top = y;
                 mensagensMaisWindow.Left = x;

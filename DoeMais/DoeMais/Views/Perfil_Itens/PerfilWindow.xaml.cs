@@ -123,7 +123,6 @@ namespace DoeMais.Views.Perfil_Itens
             instituicao.Cep = textBox_CEP.Text;
             instituicao.Cidade = textBox_cidade.Text;
             instituicao.Complemento = textBox_complemento.Text;
-            //instituicao.DiasAbertos
             instituicao.Email = textBox_email.Text;
             instituicao.HoraAbre = Convert.ToDateTime(timePicker_das.Value);
             instituicao.HoraFecha = Convert.ToDateTime(timePicker_ate.Value);

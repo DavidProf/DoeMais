@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DoeMais.BD;
 using DoeMais.Controller.Objetos;
+using DoeMais.Controller.Util;
 
 namespace DoeMais.Views.ConsultaFuncionario
 {
@@ -30,7 +31,7 @@ namespace DoeMais.Views.ConsultaFuncionario
             textBox_nome.IsReadOnly = true;
             textBox_cpf.IsReadOnly = true;
             textBox_rg.IsReadOnly = true;
-            textBox_rg.IsReadOnly = true;
+            textBox_dataDeNascimento.IsReadOnly = true;
             textBox_cep.IsReadOnly = true;
             textBox_logradouro.IsReadOnly = true;
             textBox_uf.IsReadOnly = true;
@@ -84,9 +85,85 @@ namespace DoeMais.Views.ConsultaFuncionario
             ControlViews.voltarConsultaFuncDetalhes();
         }
 
-        private void checkBox_administrador_Checked(object sender, RoutedEventArgs e)
+        private void checkBox_alterar_Checked(object sender, RoutedEventArgs e)
         {
+            if (checkBox_alterar.IsChecked == true)
+            {
+                textBox_nome.IsReadOnly = false;
+                textBox_cep.IsReadOnly = false;
+                textBox_numero.IsReadOnly = false;
+                textBox_complemento.IsReadOnly = false;
+                textBox_telefoneA.IsReadOnly = false;
+                textBox_telefoneB.IsReadOnly = false;
+                textBox_email.IsReadOnly = false;
+                groupBox_status.IsHitTestVisible = true;
+                groupBox_adm.IsHitTestVisible = true;
+            }
+        }
 
+        private void textBox_cep_MouseLeave(object sender, MouseEventArgs e)
+        {
+            EnderecoDados defineEnd = new EnderecoDados();
+            Endereco end = new Endereco();
+            try
+            {
+                end = defineEnd.GET(textBox_cep.Text);
+                textBox_bairro.Text = end.Bairro;
+                textBox_cidade.Text = end.Cidade;
+                textBox_logradouro.Text = end.Logradouro;
+                textBox_uf.Text = end.UF;
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void button_salvar_Click(object sender, RoutedEventArgs e)
+        {
+            Funcionario funcAtualizado = new Funcionario();
+            //funcAtualizado.Adm
+            //funcAtualizado.Ativo
+            funcAtualizado.Bairro = textBox_bairro.Text;
+            funcAtualizado.Cep = textBox_cep.Text;
+            funcAtualizado.Cidade = textBox_cidade.Text;
+            funcAtualizado.Complemento = textBox_complemento.Text;
+            funcAtualizado.Email = textBox_email.Text;
+            funcAtualizado.Logradouro = textBox_logradouro.Text;
+            funcAtualizado.Nome = textBox_nome.Text;
+            funcAtualizado.Numero = textBox_numero.Text;
+            funcAtualizado.TelefoneA = textBox_telefoneA.Text;
+            funcAtualizado.TelefoneB = textBox_telefoneB.Text;
+
+            if (checkBox_administrador.IsChecked == true)
+            {
+                funcAtualizado.Adm = true;
+            }
+            else
+            {
+                funcAtualizado.Adm = false;
+            }
+
+            if (radioButton_ativo.IsChecked == true)
+            {
+                funcAtualizado.Ativo = true;
+            }
+            else if (radioButton_inativo.IsChecked == true)
+            {
+                funcAtualizado.Ativo = false;
+            }
+
+            FuncionarioBD atualizaFunc = new FuncionarioBD();
+            Boolean resultado = atualizaFunc.setDadosFuncionario(funcAtualizado);
+
+            if (resultado)
+            {
+                MessageBox.Show("Dados atualizados com sucesso!");
+            }
+            else
+            {
+                MessageBox.Show("Erro no servidor. Por favor, tente novamente mais tarde");
+            }
         }
     }
 }

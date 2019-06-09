@@ -27,11 +27,13 @@
         </Grid.RowDefinitions>
         <!--  checkbox  -->
         <CheckBox
+            Name="checkBox_alterar"
             Grid.Row="1"
             Margin="5,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
-            Content="Alterar" />
+            Content="Alterar" 
+            Checked="checkBox_alterar_Checked" />
         <!--  barra superior  -->
         <Grid
             Grid.ColumnSpan="5"
@@ -189,7 +191,8 @@
                     Name="textBox_cep"
                     Grid.Column="1"
                     Margin="0,2,0,2"
-                    HorizontalContentAlignment="Center" />
+                    HorizontalContentAlignment="Center"
+                    MouseLeave="textBox_cep_MouseLeave"/>
                 <TextBox
                     Name="textBox_uf"
                     Grid.Row="1"
@@ -303,8 +306,7 @@
             <CheckBox
                 Name="checkBox_administrador"
                 HorizontalAlignment="Center"
-                Content="Administrador"
-                Checked="checkBox_administrador_Checked"/>
+                Content="Administrador" />
         </GroupBox>
         <!--  button  -->
         <Button
@@ -320,7 +322,8 @@
             Height="30"
             Margin="0,0,5,0"
             HorizontalAlignment="Right"
-            Content="Salvar" />
+            Content="Salvar" 
+            Click="button_salvar_Click"/>
         <Button
             Name="button_voltar"
             Grid.Row="6"

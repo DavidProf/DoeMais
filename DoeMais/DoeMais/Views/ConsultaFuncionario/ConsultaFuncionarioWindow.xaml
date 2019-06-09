@@ -142,7 +142,7 @@
             Height="30"
             Content="Buscar" Click="button_buscar_Click" />
         <!--  listview  -->
-        <ListView Name="listView_funcionarios" Grid.Row="2" Grid.ColumnSpan="3" Margin="5" ItemsSource="{Binding Funcionario}">
+        <ListView Name="listView_funcionarios" Grid.Row="2" Grid.ColumnSpan="3" Margin="5" ItemsSource="{Binding Funcionario}" SelectedItem="{Binding Funcionario}" SelectionMode="Single">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="200" Header="CPF" DisplayMemberBinding="{Binding Cpf}"/>
@@ -157,7 +157,8 @@
             Grid.Column="2"
             Width="100"
             Height="30"
-            Content="Detalhes" />
+            Content="Detalhes"
+            Click="button_detalhes_Click"/>
         <Button
             Name="button_voltar"
             Grid.Row="3"

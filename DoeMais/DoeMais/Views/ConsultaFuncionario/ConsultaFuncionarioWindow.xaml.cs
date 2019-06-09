@@ -92,5 +92,20 @@ namespace DoeMais.Views.ConsultaFuncionario
                 }
             }
         }
+
+        private void button_detalhes_Click(object sender, RoutedEventArgs e)
+        {
+           Funcionario item = new Funcionario();
+
+            try
+            {
+                item = (Funcionario) listView_funcionarios.SelectedItem;
+                ControlViews.startConsultaFuncDetalhes(item.Cpf);
+            }
+            catch
+            {
+                MessageBox.Show("Por favor, selecione um funcionário");
+            }
+        }
     }
 }

@@ -266,11 +266,12 @@
                 <!--  textbox  -->
                 <TextBox Name="textBox_telefoneA" Grid.Column="1" />
                 <TextBox Name="textBox_telefoneB" Grid.Column="3" />
-                <TextBox Name="textBox_emaiç" Grid.Column="5" />
+                <TextBox Name="textBox_email" Grid.Column="5" />
             </Grid>
         </GroupBox>
         <!--  groupbox  ativo  -->
         <GroupBox
+            Name="groupBox_status"
             Grid.Row="5"
             Width="200"
             Margin="5,0"
@@ -292,6 +293,7 @@
         </GroupBox>
         <!--  groupbox administrador  -->
         <GroupBox
+            Name="groupBox_adm"
             Grid.Row="5"
             Margin="210,0"
             HorizontalAlignment="Left"
@@ -301,7 +303,8 @@
             <CheckBox
                 Name="checkBox_administrador"
                 HorizontalAlignment="Center"
-                Content="Administrador" />
+                Content="Administrador"
+                Checked="checkBox_administrador_Checked"/>
         </GroupBox>
         <!--  button  -->
         <Button
@@ -325,7 +328,8 @@
             Height="30"
             Margin="5,0,0,0"
             HorizontalAlignment="Left"
-            Content="Voltar" />
+            Content="Voltar"
+            Click="button_voltar_Click" />
 
     </Grid>
 </Window>

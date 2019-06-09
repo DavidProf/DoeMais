@@ -45,6 +45,10 @@ namespace DoeMais.Views
         private static ConsultaFuncionario.ConsultaFuncionarioWindow consultaFuncionarioWindow;
         private static bool consultaFuncOn = false;
 
+        // ConsultaFuncionario Detalhes
+        private static ConsultaFuncionario.ConsultaFuncionarioDetalhesWindow consultaFuncionarioDetalhesWindow;
+        private static bool consultaFuncDetalhesOn = false;
+
         // Mensagens
         private static Mensagens.MensagensWindow mensagensWindow;
         private static bool mensagensOn = false;
@@ -236,10 +240,49 @@ namespace DoeMais.Views
         #endregion
 
         // Fechar e abrir janela de consulta de funcionários - detalhes
+        #region consultaFuncionarioDetalhes
+
+        public static void startConsultaFuncDetalhes(String cpf)
+        {
+            if (consultaFuncDetalhesOn)
+            {
+                consultaFuncionarioDetalhesWindow.Focus();
+            }
+            else
+            {
+                double x = consultaFuncionarioWindow.Left;
+                double y = consultaFuncionarioWindow.Top;
+                closeConsultaFunc();
+                consultaFuncionarioDetalhesWindow = new ConsultaFuncionario.ConsultaFuncionarioDetalhesWindow(cpf);
+                consultaFuncionarioDetalhesWindow.Show();
+                consultaFuncionarioDetalhesWindow.Top = y;
+                consultaFuncionarioDetalhesWindow.Left = x;
+                consultaFuncDetalhesOn = true;
+            }
+        }
+
+        public static void closeConsultaFuncDetalhes()
+        {
+            if (consultaFuncDetalhesOn)
+            {
+                consultaFuncionarioDetalhesWindow.Close();
+                consultaFuncionarioDetalhesWindow = null;
+                menuWindow.Focus();
+                consultaFuncDetalhesOn = false;
+            }
+        }
+
+        public static void voltarConsultaFuncDetalhes()
+        {
+            closeConsultaFuncDetalhes();
+            consultaFuncionarioWindow.Focus();
+        }
+
+        #endregion
 
         // Fechar e abrir janela de mensagens
         #region mensagens
-        
+
         public static void startMensagens()
         {
             if (mensagensOn)

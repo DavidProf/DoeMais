@@ -139,8 +139,9 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="120" Header="Data" DisplayMemberBinding="{Binding Data}" />
+                    <GridViewColumn Width="100" Header="Cód. Doador" DisplayMemberBinding="{Binding IdDoador}" />
                     <GridViewColumn Width="120" Header="Nome do Doador" DisplayMemberBinding="{Binding Nome}"/>
-                    <GridViewColumn Width="350" Header="Última Mensagem" DisplayMemberBinding="{Binding Mensagem}"/>
+                    <GridViewColumn Width="250" Header="Última Mensagem" DisplayMemberBinding="{Binding Mensagem}"/>
                 </GridView>
             </ListView.View>
         </ListView>

@@ -120,6 +120,6 @@
             Height="30"
             Content="Enviar" 
             HorizontalAlignment="Right"
-            Margin="10"/>
+            Margin="10" Click="button_Enviar_Click"/>
     </Grid>
 </Window>

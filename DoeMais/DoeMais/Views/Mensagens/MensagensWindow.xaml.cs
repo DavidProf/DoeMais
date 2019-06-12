@@ -31,10 +31,18 @@ namespace DoeMais.Views.Mensagens
             MensagemBD getMensagens = new MensagemBD();
             List<String[]> mensagens = getMensagens.getMensagens();
 
-            foreach (var mensagem in mensagens)
+            try
             {
-                listView_mensagens.Items.Add(new MensagensRecebidas() { Data = mensagem[2], Nome = mensagem[1], Mensagem = mensagem[3] });
+                foreach (String[] mensagem in mensagens)
+                {
+                    listView_mensagens.Items.Add(new MensagensRecebidas() { Data = mensagem[3], IdDoador = mensagem[1], Nome = mensagem[2], Mensagem = mensagem[4] });
+                }
             }
+            catch
+            {
+                MessageBox.Show("Não foi possível carregar a lista de mensagens no momento. Tente novamente mais tarde");
+            }
+           
         }
 
         private void button_voltar_Click(object sender, RoutedEventArgs e)
@@ -49,7 +57,7 @@ namespace DoeMais.Views.Mensagens
             try
             {
                 mensagem = (MensagensRecebidas)listView_mensagens.SelectedItem;
-                ControlViews.startMensagensMais(mensagem.IdDoador);
+                ControlViews.startMensagensMais(mensagem.IdMensagem, mensagem.Nome, mensagem.IdDoador, mensagem.Mensagem);
             }
             catch
             {

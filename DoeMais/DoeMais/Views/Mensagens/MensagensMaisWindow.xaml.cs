@@ -21,27 +21,35 @@ namespace DoeMais.Views.Mensagens
     /// </summary>
     public partial class MensagensMaisWindow : Window
     {
-        public MensagensMaisWindow(String id)
+        public MensagensMaisWindow(int idMensagem, String nome, String idDoador, String mensagem)
         {
             InitializeComponent();
             MinimizeWindow.Click += (s, e) => WindowState = WindowState.Minimized;
             CloseApp.Click += (s, e) => ControlViews.closeMensagensMais();
 
-            List<String[]> mensagens = new List<String[]>();
-            MensagemBD getMensagem = new MensagemBD();
-
-            mensagens = getMensagem.getMensagensDoDoador(Convert.ToInt32(id));
-
-            foreach (var mensagem in mensagens)
-            {
-               
-            }
-
+            textBox_codDoador.Text = idDoador;
+            textBox_mensagem.Text = mensagem;
+            textBox_nomeDoador.Text = nome;
         }
 
         private void button_Voltar_Click(object sender, RoutedEventArgs e)
         {
             ControlViews.voltarMensagensMais();
+        }
+
+        private void button_Enviar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                MensagemBD mensagem = new MensagemBD();
+                mensagem.enviarMensagem(Convert.ToInt32(textBox_codDoador.Text), textBox_resposta.Text);
+                MessageBox.Show("Mensagem enviada com sucesso!");
+                textBox_resposta.Clear();
+            }
+            catch
+            {
+                MessageBox.Show("Não foi possível enviar a mensagem. Tente novamente mais tarde");
+            }
         }
     }
 }

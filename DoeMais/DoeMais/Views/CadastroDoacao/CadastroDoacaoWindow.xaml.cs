@@ -34,7 +34,7 @@ namespace DoeMais.Views.CadastroDoacao
 
             try
             {
-                List<Item> itens = itemAction.getItems();
+                List<Item> itens = itemAction.getItensInstituicao();
 
                 foreach (var item in itens)
                 {

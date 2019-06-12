@@ -19,6 +19,7 @@ namespace DoeMais.BD
                 #region CommandText
                 cmd.CommandText =
                 " SELECT  " +
+                " tblMensagem.IdMensagem, " +
                 " tblMensagem.fk_IdDoador, " +
                 " (tblDoador.Nome + ' ' + tblDoador.Sobrenome), " +
                 " tblMensagem.DataDeEnvio, " +
@@ -43,7 +44,8 @@ namespace DoeMais.BD
                             dr[0].ToString(),//IdDoador
                             dr[1].ToString(),//Nome Doador
                             dr[2].ToString(),//data de envio
-                            dr[3].ToString() //texto
+                            dr[3].ToString(), //texto
+                            dr[4].ToString()
                         };
                         retorno.Add(info);
                     }

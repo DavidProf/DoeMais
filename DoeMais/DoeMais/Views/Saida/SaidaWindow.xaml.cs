@@ -12,18 +12,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace DoeMais.Views.CheckIn
+namespace DoeMais.Views.Saida
 {
     /// <summary>
-    /// Interaction logic for CheckInMaisWindow.xaml
+    /// Lógica interna para SaidaWindow.xaml
     /// </summary>
-    public partial class CheckInMaisWindow : Window
+    public partial class SaidaWindow : Window
     {
-        public CheckInMaisWindow()
+        public SaidaWindow()
         {
             InitializeComponent();
             MinimizeWindow.Click += (s, e) => WindowState = WindowState.Minimized;
-            CloseApp.Click += (s, e) => ControlViews.closeCheckInMais();
+            CloseApp.Click += (s, e) => ControlViews.closeSaida();
+        }
+
+        private void button_voltar_Click(object sender, RoutedEventArgs e)
+        {
+            ControlViews.voltarSaida();
         }
     }
 }

@@ -95,7 +95,7 @@
                     VerticalAlignment="Top"
                     Margin="10" />
         <TextBox
-                    Name="textBox_CPFCNPJ"
+                    Name="textBox_CpfCnpj"
                     Grid.Row="1"
                     Grid.Column="2"
                     Width="210"
@@ -109,29 +109,39 @@
                    VerticalAlignment="Center"
                    Content="Ativar filtro por data"
                    Grid.Row="2"
-                   Grid.ColumnSpan="2"/>
+                   Grid.ColumnSpan="2" Checked="checkBox_filtroData_Checked"/>
         <!--button-->
         <Button
                    Name="button_buscar"
                    Grid.Row="2"
                    Grid.Column="2"
-                   Width="100"
+                   Width="120"
                    Height="30"
-                   Content="Buscar Doador" />
+                   Content="Buscar Mensagens" Click="button_buscar_Click" />
         <Button
                    Name="button_voltar"
                    Grid.Row="4"
                    Width="100"
                    Height="30"
                    Content="Voltar"
-                   Grid.ColumnSpan="4" />
+                   Grid.Column="0" Click="button_voltar_Click" />
+        <Button
+            Name="button_abrirMensagem"
+            Grid.Row="4"
+            Height="30"
+            Width="150"
+            HorizontalAlignment="Right"
+            Margin="0 0 25 0"
+            Content="Abrir Mensagem"
+            Grid.Column="2" Click="button_abrirMensagem_Click" />
         <!--listview-->
-        <ListView Grid.Row="3" Grid.ColumnSpan="4">
+        <ListView Name="listView_mensagens" Grid.Row="3" Grid.ColumnSpan="4" ItemsSource="{Binding MensagensRecebidas}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="100" Header="Cód. Doador" />
-                    <GridViewColumn Width="200" Header="Nome do Doador" />
-                    <GridViewColumn Width="300" Header="Última Mensagem" />
+                    <GridViewColumn Width="120" Header="Data" DisplayMemberBinding="{Binding Data}" />
+                    <GridViewColumn Width="100" Header="Cód. Doador" DisplayMemberBinding="{Binding IdDoador}" />
+                    <GridViewColumn Width="120" Header="Nome do Doador" DisplayMemberBinding="{Binding Nome}"/>
+                    <GridViewColumn Width="250" Header="Última Mensagem" DisplayMemberBinding="{Binding Mensagem}"/>
                 </GridView>
             </ListView.View>
         </ListView>

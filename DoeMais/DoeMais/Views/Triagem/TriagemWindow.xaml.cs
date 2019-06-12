@@ -12,18 +12,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace DoeMais.Views.CheckIn
+namespace DoeMais.Views.Triagem
 {
     /// <summary>
-    /// Interaction logic for CheckInMaisWindow.xaml
+    /// Lógica interna para TriagemWindow.xaml
     /// </summary>
-    public partial class CheckInMaisWindow : Window
+    public partial class TriagemWindow : Window
     {
-        public CheckInMaisWindow()
+        public TriagemWindow()
         {
             InitializeComponent();
             MinimizeWindow.Click += (s, e) => WindowState = WindowState.Minimized;
-            CloseApp.Click += (s, e) => ControlViews.closeCheckInMais();
+            CloseApp.Click += (s, e) => ControlViews.closeTriagem();
+        }
+
+        private void button_voltar_Click(object sender, RoutedEventArgs e)
+        {
+            ControlViews.voltarTriagem();
         }
     }
 }

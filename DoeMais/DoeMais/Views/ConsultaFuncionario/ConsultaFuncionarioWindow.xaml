@@ -25,6 +25,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <!--  barra superior  -->
         <Grid
@@ -82,41 +83,70 @@
                     Name="radioButton_nenhum"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Content="Nenhum" />
+                    Content="Nenhum" Checked="radioButton_nenhum_Checked" />
                 <RadioButton
                     Name="radioButton_CPF"
                     Grid.Column="1"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Content="CPF" />
+                    Content="CPF" Checked="radioButton_CPF_Checked" />
                 <RadioButton
                     Name="radioButton_Nome"
                     Grid.Column="2"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Content="Nome" />
+                    Content="Nome" Checked="radioButton_Nome_Checked" />
                 <!--  textbox  -->
                 <TextBox
                     Name="textBox_Busca"
                     Grid.Row="2"
-                    Grid.Column="1"
-                    Grid.ColumnSpan="1" />
+                    Grid.Column="0"
+                    Margin="5"
+                    Grid.ColumnSpan="3"/>
+            </Grid>
+        </GroupBox>
+        <!--groupbox atividade funcionário-->
+        <GroupBox
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="5"
+            BorderBrush="#444"
+            BorderThickness="2"
+            Header="Status">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <!--radio buttons-->
+                <RadioButton
+                    Name="radioButton_ativo"
+                    Grid.Row="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="Ativo" />
+                <RadioButton
+                    Name="radioButton_inativo"
+                    Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="Inativo" />
             </Grid>
         </GroupBox>
         <!--  button  -->
         <Button
             Name="button_buscar"
             Grid.Row="1"
-            Grid.Column="1"
+            Grid.Column="2"
             Width="100"
             Height="30"
-            Content="Buscar" />
+            Content="Buscar" Click="button_buscar_Click" />
         <!--  listview  -->
-        <ListView Grid.Row="2" Grid.ColumnSpan="2">
+        <ListView Name="listView_funcionarios" Grid.Row="2" Grid.ColumnSpan="3" Margin="5" ItemsSource="{Binding Funcionario}" SelectedItem="{Binding Funcionario}" SelectionMode="Single">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="150" Header="CPF" />
-                    <GridViewColumn Width="300" Header="Nome do funcionário" />
+                    <GridViewColumn Width="200" Header="CPF" DisplayMemberBinding="{Binding Cpf}"/>
+                    <GridViewColumn Width="350" Header="Nome do funcionário" DisplayMemberBinding="{Binding Nome}"/>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -124,16 +154,17 @@
         <Button
             Name="button_detalhes"
             Grid.Row="3"
-            Grid.Column="0"
+            Grid.Column="2"
             Width="100"
             Height="30"
-            Content="Detalhes" />
+            Content="Detalhes"
+            Click="button_detalhes_Click"/>
         <Button
             Name="button_voltar"
             Grid.Row="3"
-            Grid.Column="1"
+            Grid.Column="0"
             Width="100"
             Height="30"
-            Content="Voltar" />
+            Content="Voltar" Click="button_voltar_Click" />
     </Grid>
 </Window>

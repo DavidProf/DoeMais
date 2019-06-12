@@ -13,6 +13,46 @@ namespace DoeMais.BD
     {//Classe de conexão ao banco com métodos relacionados ao funcionário
         Funcionario retorno;
 
+        public List<Funcionario> getAllFuncionarios(int inativo, int ativo)
+        {
+            List<Funcionario> funcionarios = new List<Funcionario>();
+
+            try
+            {
+                open();
+                #region CommandText
+                cmd.CommandText = " SELECT * FROM tblFuncionario WHERE Ativo BETWEEN @b1 AND @b2 ";
+                cmd.Parameters.AddWithValue("@b1", inativo);
+                cmd.Parameters.AddWithValue("@b2", ativo);
+                #endregion
+
+                dr = cmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        retorno = new Funcionario();//precisa limpar sempre
+                        if (dr.FieldCount > 1)
+                        {
+                            retorno.Nome = dr[6].ToString();
+                            retorno.Sobrenome = dr[7].ToString();
+                            retorno.Cpf = dr[4].ToString();
+                        }
+                        funcionarios.Add(retorno);
+                    }
+                }
+
+                close();
+                return funcionarios;
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                close();
+                return null;
+            }
+        }
+
         public List<Funcionario> getFuncionarios(String NomeOuCpf, int inativo, int ativo)
         {
             List<Funcionario> funcionarios = new List<Funcionario>();

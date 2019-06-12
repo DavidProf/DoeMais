@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:DoeMais.Views.Perfil_Itens"
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:userControls="clr-namespace:DoeMais.Views.UserControls"
     Title="DoeMais - Perfil"
@@ -73,7 +74,8 @@
             Grid.Column="1"
             Margin="0,5,0,0"
             Content="Alterar"
-            TabIndex="1" />
+            TabIndex="1" 
+            Checked="checkBox_alterar_Checked"/>
 
         <GroupBox
             Name="groupBox_dadosGerais"
@@ -91,26 +93,27 @@
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="60" />
-                    <ColumnDefinition />
+                    <ColumnDefinition Width="28*" />
+                    <ColumnDefinition Width="181*"/>
                     <ColumnDefinition Width="90" />
-                    <ColumnDefinition />
+                    <ColumnDefinition Width="209*" />
                 </Grid.ColumnDefinitions>
 
                 <Label
                     Margin="0,-5,0,0"
                     HorizontalContentAlignment="Center"
-                    Content="CPF:" />
+                    Content="CNPJ:" />
                 <TextBox
-                    Name="textBox_CPF"
+                    Name="textBox_CNPJ"
                     Grid.Column="1"
                     Height="20"
                     MaxLength="11"
                     PreviewTextInput="NumberValidationTextBox"
                     TabIndex="2"
-                    ToolTip="Ex:123 456 789 10" />
+                    ToolTip="Ex:123 456 789 10" Grid.ColumnSpan="2" Margin="0,1" />
                 <TextBlock
                     Grid.Column="1"
-                    Margin="10,0,0,0"
+                    Margin="10,11,0,11"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     Foreground="DarkGray"
@@ -129,10 +132,9 @@
                 </TextBlock>
 
                 <Label
-                    Grid.Row="1"
-                    Margin="0,-5,0,0"
+                    Margin="0,17,0,0"
                     HorizontalContentAlignment="Center"
-                    Content="Telefone:" />
+                    Content="Telefone:" Grid.RowSpan="2" />
                 <TextBox
                     Name="textBox_telefoneA"
                     Grid.Row="1"
@@ -141,16 +143,16 @@
                     MaxLength="13"
                     PreviewTextInput="NumberValidationTextBox"
                     TabIndex="3"
-                    ToolTip="00 0000 0000 / 00 90000 0000" />
+                    ToolTip="00 0000 0000 / 00 90000 0000" Grid.ColumnSpan="2" Margin="0,1" />
                 <TextBlock
                     Grid.Row="1"
                     Grid.Column="1"
-                    Margin="10,0,0,0"
+                    Margin="10,3,0,3"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     Foreground="DarkGray"
                     IsHitTestVisible="False"
-                    Text="Somente números">
+                    Text="Somente números" Grid.ColumnSpan="2">
                     <TextBlock.Style>
                         <Style TargetType="{x:Type TextBlock}">
                             <Setter Property="Visibility" Value="Collapsed" />
@@ -164,10 +166,10 @@
                 </TextBlock>
 
                 <Label
-                    Grid.Row="2"
-                    Margin="0,-5,0,0"
+                    Grid.Row="1"
+                    Margin="0,17,0,0"
                     HorizontalContentAlignment="Center"
-                    Content="Telefone:" />
+                    Content="Telefone:" Grid.RowSpan="2" />
                 <TextBox
                     Name="textBox_telefoneB"
                     Grid.Row="2"
@@ -177,16 +179,16 @@
                     MaxLength="13"
                     PreviewTextInput="NumberValidationTextBox"
                     TabIndex="4"
-                    ToolTip="00 0000 0000 / 00 90000 0000" />
+                    ToolTip="00 0000 0000 / 00 90000 0000" Grid.ColumnSpan="2" Margin="0,2,0,1" />
                 <TextBlock
                     Grid.Row="2"
                     Grid.Column="1"
-                    Margin="10,0,0,0"
+                    Margin="10,4,0,3"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     Foreground="DarkGray"
                     IsHitTestVisible="False"
-                    Text="Somente números">
+                    Text="Somente números" Grid.ColumnSpan="2">
                     <TextBlock.Style>
                         <Style TargetType="{x:Type TextBlock}">
                             <Setter Property="Visibility" Value="Collapsed" />
@@ -200,44 +202,43 @@
                 </TextBlock>
 
                 <Label
-                    Grid.Column="2"
+                    Grid.Column="3"
                     Margin="0,-5,0,0"
                     HorizontalContentAlignment="Center"
                     Content="Razão Social:" />
                 <TextBox
                     Name="textBox_razaoSocial"
-                    Grid.Column="3"
+                    Grid.Column="4"
                     Height="20"
                     TabIndex="5"
-                    ToolTip="Razão Social" />
+                    ToolTip="Razão Social" Margin="0,1" />
 
                 <Label
-                    Grid.Row="1"
-                    Grid.Column="2"
-                    Margin="0,-5,0,0"
+                    Grid.Column="3"
+                    Margin="0,17,0,0"
                     HorizontalContentAlignment="Center"
-                    Content="Nome Fantasia:" />
+                    Content="Nome Fantasia:" Grid.RowSpan="2" />
                 <TextBox
                     Name="textBox_nomeFantasia"
                     Grid.Row="1"
-                    Grid.Column="3"
+                    Grid.Column="4"
                     Height="20"
                     TabIndex="6"
-                    ToolTip="Nome Fantasia" />
+                    ToolTip="Nome Fantasia" Margin="0,1" />
 
                 <Label
-                    Grid.Row="2"
-                    Grid.Column="2"
-                    Margin="0,-5,0,0"
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    Margin="0,17,0,0"
                     HorizontalContentAlignment="Center"
-                    Content="E-mail:" />
+                    Content="E-mail:" Grid.RowSpan="2" />
                 <TextBox
                     Name="textBox_email"
                     Grid.Row="2"
-                    Grid.Column="3"
+                    Grid.Column="4"
                     Height="20"
                     TabIndex="7"
-                    ToolTip="exemplo@domain.xyz" />
+                    ToolTip="exemplo@domain.xyz" Margin="0,2,0,1" />
 
             </Grid>
         </GroupBox>
@@ -254,7 +255,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition />
-                    <RowDefinition />
+                    <RowDefinition Height="23" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="60" />
@@ -276,7 +277,7 @@
                     MaxLength="8"
                     PreviewTextInput="NumberValidationTextBox"
                     TabIndex="8"
-                    ToolTip="00000 000" />
+                    ToolTip="00000 000" MouseLeave="textBox_CEP_MouseLeave" />
                 <TextBlock
                     Grid.Column="1"
                     Margin="10,0,0,0"
@@ -431,13 +432,13 @@
                         Margin="0,5,0,0"
                         Content="Sim"
                         TabIndex="11"
-                        ToolTip="Selecione sim se a instituição retira em dimicílio" Checked="radioButton_retiraSim_Checked" />
+                        ToolTip="Selecione sim se a instituição retira em domicílio" />
                     <RadioButton
                         Name="radioButton_retiraNao"
                         Grid.Row="1"
                         Content="Não"
                         TabIndex="12"
-                        ToolTip="Selecione NÃO se a instituição NÃO retira em dimicílio" />
+                        ToolTip="Selecione NÃO se a instituição NÃO retira em domicílio" />
                 </Grid>
 
             </GroupBox>
@@ -469,23 +470,24 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Content="Das:" />
-                    <userControls:TimePicker
-                        x:Name="timePicker_das"
+                    <xctk:TimePicker
+                        Name="timePicker_das"
                         Grid.Column="1"
                         Grid.ColumnSpan="2"
                         Height="30"
+                        Width="100"
                         TabIndex="13" />
-
                     <Label
                         Grid.Column="3"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Content="Até:" />
-                    <userControls:TimePicker
-                        x:Name="timePicker_ate"
+                    <xctk:TimePicker
+                        Name="timePicker_ate"
                         Grid.Column="4"
                         Grid.ColumnSpan="2"
                         Height="30"
+                        Width="100"
                         TabIndex="14" />
 
                     <CheckBox
@@ -562,7 +564,7 @@
                 Grid.Column="1"
                 Margin="0,2,0,5"
                 Content="Salvar"
-                TabIndex="23" />
+                TabIndex="23" Click="button_salvar_Click" />
         </Grid>
     </Grid>
 </Window>

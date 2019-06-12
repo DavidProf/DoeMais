@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DoeMais.Controller.SISTEMA;
 
 namespace DoeMais.Views
 {
@@ -29,8 +30,26 @@ namespace DoeMais.Views
 
         private void Button_entrar_Click(object sender, RoutedEventArgs e)
         {
-            new ControlViews();
-            this.Close();
+            Login l = new Login();
+            bool teste = l.logar(textBox_Usuario.Text, textBox_Senha.Text);
+
+            if (teste)
+            {
+                if (ControlViews.adm)
+                {
+                    new ControlViews();
+                    this.Close();
+                }
+                else
+                {
+                    ControlViews.openMenuComum();
+                    this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, verifique seu acesso com a sua instituição");
+            }
         }
     }
 }

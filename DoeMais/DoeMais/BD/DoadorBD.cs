@@ -8,6 +8,42 @@ namespace DoeMais.BD
 {
     class DoadorBD : ConectaBD
     {//Classe de conexão ao banco com métodos relacionados ao doador
+
+        public String[] getDoadorId(String Cpf)
+        {
+            String[] dados = new String[1];
+            try
+            {
+                open();
+
+                #region CommandText
+                cmd.CommandText =
+                    " SELECT IdDoador FROM tblDoador WHERE CPF_CNPJ LIKE @cpf ";
+                cmd.Parameters.AddWithValue("@cpf", Cpf);
+                #endregion
+
+                dr = cmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        dados[0] = dr[0].ToString();
+
+                        close();
+                        return dados;
+                    }
+                }
+
+                close();
+                return new String[1] { "Não encontrado" };
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                close();
+                return new String[1] { "ERRO" };
+            }
+        }
         public String[] getDoadorParaCadastroDeDoacao(String Cpf)
         {
             String[] dados = new String[3]; ;
@@ -34,7 +70,7 @@ namespace DoeMais.BD
                 {
                     while (dr.Read())
                     {
-                        dados[0] = dr[0].ToString();
+                        dados[0] = dr[0].ToString(); // ID
                         dados[1] = dr[1].ToString();
                         dados[2] = dr[2].ToString();
 

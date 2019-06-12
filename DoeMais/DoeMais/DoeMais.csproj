@@ -70,6 +70,21 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -90,11 +105,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Controller\ListViewSettings\ItensCadastroDoacao.cs" />
+    <Compile Include="Controller\ListViewSettings\MensagensRecebidas.cs" />
     <Compile Include="Controller\Objetos\Endereco.cs" />
     <Compile Include="Controller\Objetos\Funcionario.cs" />
     <Compile Include="Controller\Objetos\Instituicao.cs" />
     <Compile Include="Controller\Objetos\Item.cs" />
     <Compile Include="Controller\SISTEMA\Login.cs" />
+    <Compile Include="Controller\Util\CriarSenhaPadrao.cs" />
     <Compile Include="Controller\Util\EnderecoDados.cs" />
     <Compile Include="Controller\Util\FormatCnpjCpf.cs" />
     <Compile Include="Controller\Util\ValidaCNPJ.cs" />
@@ -144,11 +162,23 @@
     <Compile Include="Views\Perfil_Itens\PerfilWindow.xaml.cs">
       <DependentUpon>PerfilWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Propagandas\PropagandasWindow.xaml.cs">
+      <DependentUpon>PropagandasWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Saida\SaidaWindow.xaml.cs">
+      <DependentUpon>SaidaWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Triagem\TriagemAlimentosWindow.xaml.cs">
       <DependentUpon>TriagemAlimentosWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Triagem\TriagemHigieneWindow.xaml.cs">
       <DependentUpon>TriagemHigieneWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Triagem\TriagemRoupasWindow.xaml.cs">
+      <DependentUpon>TriagemRoupasWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Triagem\TriagemWindow.xaml.cs">
+      <DependentUpon>TriagemWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\_Assets\UserControls\TimePicker.xaml.cs">
       <DependentUpon>TimePicker.xaml</DependentUpon>
@@ -213,11 +243,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Propagandas\PropagandasWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Saida\SaidaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Triagem\TriagemAlimentosWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Triagem\TriagemHigieneWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Triagem\TriagemRoupasWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Triagem\TriagemWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -403,13 +449,17 @@
     <None Include="Connected Services\WSCorreios\DoeMais.WSCorreios.VerificaSeTodosObjetosCanceladosResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Resources\password.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\_Assets\imgs\logo.png" />

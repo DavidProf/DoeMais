@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DoeMais.BD;
+using DoeMais.Controller.ListViewSettings;
 
 namespace DoeMais.Views.Mensagens
 {
@@ -22,6 +24,75 @@ namespace DoeMais.Views.Mensagens
         public MensagensWindow()
         {
             InitializeComponent();
+            MinimizeWindow.Click += (s, e) => WindowState = WindowState.Minimized;
+            CloseApp.Click += (s, e) => ControlViews.closeMensagens();
+            textBox_dataDe.IsEnabled = false;
+
+            MensagemBD getMensagens = new MensagemBD();
+            List<String[]> mensagens = getMensagens.getMensagens();
+
+            try
+            {
+                foreach (String[] mensagem in mensagens)
+                {
+                    listView_mensagens.Items.Add(new MensagensRecebidas() { Data = mensagem[3], IdDoador = mensagem[1], Nome = mensagem[2], Mensagem = mensagem[4] });
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Não foi possível carregar a lista de mensagens no momento. Tente novamente mais tarde");
+            }
+           
+        }
+
+        private void button_voltar_Click(object sender, RoutedEventArgs e)
+        {
+            ControlViews.voltarMensagens();
+        }
+
+        private void button_abrirMensagem_Click(object sender, RoutedEventArgs e)
+        {
+            MensagensRecebidas mensagem = new MensagensRecebidas();
+
+            try
+            {
+                mensagem = (MensagensRecebidas)listView_mensagens.SelectedItem;
+                ControlViews.startMensagensMais(mensagem.IdMensagem, mensagem.Nome, mensagem.IdDoador, mensagem.Mensagem);
+            }
+            catch
+            {
+                MessageBox.Show("Por favor, selecione uma mensagem!");
+            }
+        }
+
+        private void checkBox_filtroData_Checked(object sender, RoutedEventArgs e)
+        {
+
+            if (checkBox_filtroData.IsChecked == true)
+            {
+                textBox_dataDe.IsEnabled = true;
+            }
+        }
+
+        private void button_buscar_Click(object sender, RoutedEventArgs e)
+        {
+            DoadorBD getDoadorID = new DoadorBD();
+            MensagemBD getMensagens = new MensagemBD();
+
+            if (checkBox_filtroData.IsChecked == false)
+            {
+                String[] doador = getDoadorID.getDoadorId(textBox_CpfCnpj.Text);
+                List<String[]> mensagens = getMensagens.getMensagensDoDoador(Convert.ToInt32(doador[0]));
+
+                foreach (var mensagem in mensagens)
+                {
+                    listView_mensagens.Items.Add(new MensagensRecebidas() { Data = mensagem[0], Nome = mensagem[1], Mensagem = mensagem[3] });
+                }
+            }
+            else if (checkBox_filtroData.IsChecked == true)
+            {
+
+            }
         }
     }
 }

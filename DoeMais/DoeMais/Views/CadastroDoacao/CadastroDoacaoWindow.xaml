@@ -1,5 +1,6 @@
 ﻿<Window x:Class="DoeMais.Views.CadastroDoacao.CadastroDoacaoWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="DoeMais - Cadastro de doações"
     Width="600"
@@ -95,7 +96,7 @@
         <TextBox Name="textBox_buscaCPF"
                  Grid.Column="1"
                  Grid.Row="1"
-                 Margin="0 5 0 5"/>
+                 Margin="0 5 0 5" MouseLeave="textBox_buscaCPF_MouseLeave"/>
         <TextBox Name="textBox_data"
                  Grid.Column="4"
                  Grid.Row="1"
@@ -109,30 +110,39 @@
                  Grid.Row="2"
                  Margin="0 5 0 5"/>
         <!--checkox-->
-        <CheckBox Grid.Column="2"
+        <CheckBox 
+                  Name="checkBox_semCad"
+                  Grid.Column="2"
                   Grid.Row="1"
                   Content="Sem Cadastro"
                   HorizontalAlignment="Center"
-                  VerticalAlignment="Center"/>
+                  VerticalAlignment="Center" Checked="checkBox_semCad_Checked"/>
         <!--comobox-->
         <ComboBox Name="comboBox_itens" Grid.Column="1"
                   Grid.Row="3"/>
         <!--numericUpDown-->
-        <Label Content="pôe um numeric aqui" Grid.Row="3" Grid.Column="3"/>
+        <xctk:IntegerUpDown
+            Name="numeric_itens"
+            Grid.Row="3"
+            Grid.Column="3"
+            FormatString="N0"
+            TextAlignment="Center"
+            Minimum="1"
+            Maximum="1000" />
         <!--listview-->
         <ListView Name="listView_itens"
                   Grid.Row="4"
                   Grid.ColumnSpan="4"
                   Grid.RowSpan="4"
                   Margin="15"
-                  BorderThickness="2">
+                  BorderThickness="2"
+                  ItemsSource="{Binding ItensCadastroDoacao}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Item" Width="250"/>
-                    <GridViewColumn Header="Qtd." Width="100"/>
+                    <GridViewColumn Header="Item" Width="250" DisplayMemberBinding="{Binding Item}"/>
+                    <GridViewColumn Header="Qtd" Width="100" DisplayMemberBinding="{Binding Qtd}"/>
                 </GridView>
             </ListView.View>
-            yrd
         </ListView>
         <!--buttons-->
         <Button Name="button_adicionarItem"
@@ -140,22 +150,23 @@
                 Grid.Column="4"
                 Grid.Row="4"
                 Style="{StaticResource button_blue}"
-                Margin="0 20 0 15"/>
+                Margin="0 20 0 15" Click="button_adicionarItem_Click"/>
         <Button Name="button_removerItem"
                 Content="Remover item"
                 Grid.Column="4"
                 Grid.Row="5"
                 Style="{StaticResource button_blue}"
-                Margin="0 20 0 15"/>
+                Margin="0 20 0 15" Click="button_removerItem_Click"/>
         <Button Name="button_cadastrar"
                 Content="Cadastrar Doação"
                 Grid.Column="4"
                 Grid.Row="6"
-                Margin="0 20 0 15"/>
+                Margin="0 20 0 15"
+                Click="button_cadastrar_Click"/>
         <Button Name="button_cancelar"
                 Content="Cancelar"
                 Grid.Column="4"
                 Grid.Row="7"
-                Margin="0 20 0 15"/>
+                Margin="0 20 0 15" Click="button_cancelar_Click"/>
     </Grid>
 </Window>

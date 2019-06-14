@@ -74,9 +74,19 @@ namespace DoeMais.Views.CadastroDoacao
 
             if (listView_itens.HasItems)
             {
-                foreach (ItensCadastroDoacao item in listView_itens.ItemsSource)
+                foreach (ItensCadastroDoacao item in listView_itens.Items)
                 {
                     Boolean resultado = doacao.addItemNaDoacao(Convert.ToInt32(criaDoacao), item.Item);
+                    MessageBox.Show(item.Item);
+
+                    if (resultado)
+                    {
+                        MessageBox.Show("Doação registrada com sucesso!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro no servidor. Por favor, tente novamente");
+                    }
                 }
             }
             else

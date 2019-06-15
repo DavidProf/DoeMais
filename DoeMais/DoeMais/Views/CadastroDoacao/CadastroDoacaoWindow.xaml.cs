@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DoeMais.BD;
+using DoeMais.Controller;
 using DoeMais.Controller.Objetos;
 using DoeMais.Controller.ListViewSettings;
 
@@ -29,6 +30,8 @@ namespace DoeMais.Views.CadastroDoacao
             CloseApp.Click += (s, e) => ControlViews.closeRegistroDoacao();
             DateTime hoje = DateTime.Today;
             textBox_data.Text = hoje.ToString("dd/MM/yyyy");
+            textBox_nome.IsReadOnly = true;
+            textBox_cpf.IsReadOnly = true;
 
             ItemBD itemAction = new ItemBD();
 
@@ -74,23 +77,33 @@ namespace DoeMais.Views.CadastroDoacao
 
             if (listView_itens.HasItems)
             {
-                foreach (ItensCadastroDoacao item in listView_itens.ItemsSource)
+                foreach (ItensCadastroDoacao item in listView_itens.Items)
                 {
-                    Boolean resultado = doacao.addItemNaDoacao(Convert.ToInt32(criaDoacao), item.Item);
+
+                    try
+                    {
+                        while (item.Qtd != 0)
+                        {
+                            Boolean resultado = doacao.addItemNaDoacao(Convert.ToInt32(criaDoacao), item.Item);
+                            item.Qtd = item.Qtd - 1;
+                        }
+                        MessageBox.Show("Cadastro realizado com sucesso!");
+                        textBox_buscaCPF.Clear();
+                        textBox_nome.Clear();
+                        textBox_cpf.Clear();
+                        comboBox_itens.SelectedIndex = -1;
+                        numeric_itens.Value = null;
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Erro no servidor. Por favor, tente novamente mais tarde");
+                    }
                 }
             }
             else
             {
                 MessageBox.Show("Por favor, adicione itens para a doação!");
             }
-        }
-
-        private void textBox_buscaCPF_MouseLeave(object sender, MouseEventArgs e)
-        {
-            DoadorBD doador = new DoadorBD();
-            String[] dados = doador.getDoadorParaCadastroDeDoacao(textBox_buscaCPF.Text);
-            textBox_nome.Text = dados[0];
-            textBox_cpf.Text = dados[1];
         }
 
         private void checkBox_semCad_Checked(object sender, RoutedEventArgs e)
@@ -104,6 +117,14 @@ namespace DoeMais.Views.CadastroDoacao
                 textBox_cpf.IsReadOnly = true;
                 textBox_nome.IsReadOnly = true;
             }
+        }
+
+        private void textBox_buscaCPF_LostFocus(object sender, RoutedEventArgs e)
+        {
+            DoadorBD doador = new DoadorBD();
+            String[] dados = doador.getDoadorParaCadastroDeDoacao(textBox_buscaCPF.Text);
+            textBox_nome.Text = dados[0];
+            textBox_cpf.Text = dados[1];
         }
     }
 }

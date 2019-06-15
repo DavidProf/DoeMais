@@ -106,6 +106,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controller\ListViewSettings\ItensCadastroDoacao.cs" />
+    <Compile Include="Controller\ListViewSettings\ItensDoacao.cs" />
+    <Compile Include="Controller\ListViewSettings\ListaAgendamentos.cs" />
+    <Compile Include="Controller\ListViewSettings\ListaDoacoes.cs" />
     <Compile Include="Controller\ListViewSettings\MensagensRecebidas.cs" />
     <Compile Include="Controller\Objetos\Endereco.cs" />
     <Compile Include="Controller\Objetos\Funcionario.cs" />

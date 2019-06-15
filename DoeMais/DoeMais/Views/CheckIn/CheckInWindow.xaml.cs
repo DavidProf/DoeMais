@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DoeMais.BD;
+using DoeMais.Controller.ListViewSettings;
 
 namespace DoeMais.Views.CheckIn
 {
@@ -28,12 +30,64 @@ namespace DoeMais.Views.CheckIn
 
         private void button_detalhes_Click(object sender, RoutedEventArgs e)
         {
-            ControlViews.startCheckInMais();
+            ListaDoacoes doacoes = new ListaDoacoes();
+
+            try
+            {
+                doacoes = (ListaDoacoes)listView_doacoes.SelectedItem;
+                ControlViews.startCheckInMais(doacoes.CodDoacao, doacoes.Data, doacoes.Nome, doacoes.CpfCnpj, doacoes.Domicilio);
+            }
+            catch
+            {
+                MessageBox.Show("Por favor, selecione uma mensagem!");
+            }
         }
 
         private void button_voltar_Click(object sender, RoutedEventArgs e)
         {
             ControlViews.voltarCheckIn();
+        }
+
+        private void button_buscar_Click(object sender, RoutedEventArgs e)
+        {
+            DoacaoBD doaBD = new DoacaoBD();
+            ListaDoacoes lista = new ListaDoacoes();
+
+            if (radioButton_nenhum.IsChecked == true)
+            {
+               /* List<String[]> doacoes = doacao.getDoacoes()
+                foreach (var func in funcs)
+                {
+                    listView_funcionarios.Items.Add(new Funcionario() { Cpf = func.Cpf, Nome = func.Nome + " " + func.Sobrenome });
+                } */
+            }
+            else if (radioButton_CPF.IsChecked == true || radioButton_CNPJ.IsChecked == true || radioButton_CNPJ.IsChecked == true)
+            {
+                try
+                {
+                    List<String[]> doacoes = doaBD.getDoacoes(textBox_busca.Text);
+                    foreach (var doacao in doacoes)
+                    {
+                        if (doacao[4] == "0")
+                        {
+                            listView_doacoes.Items.Add(new ListaDoacoes() { CodDoacao = doacao[0], Data = doacao[1], Nome = doacao[2], CpfCnpj = doacao[3], Domicilio = "Não" });
+                        }
+                        else if (doacao[4] == "1")
+                        {
+                            listView_doacoes.Items.Add(new ListaDoacoes() { CodDoacao = doacao[0], Data = doacao[1], Nome = doacao[2], CpfCnpj = doacao[3], Domicilio = "Sim" });
+                        }
+                    }
+
+                    if (doacoes.Count == 0)
+                    {
+                        MessageBox.Show("Não existem doações com este filtro!");
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Erro no servidor. Por favor, tente novamente mais tarde");
+                }
+            }
         }
     }
 }

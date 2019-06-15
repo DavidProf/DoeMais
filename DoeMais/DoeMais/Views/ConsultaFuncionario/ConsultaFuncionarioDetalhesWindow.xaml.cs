@@ -122,8 +122,6 @@ namespace DoeMais.Views.ConsultaFuncionario
         private void button_salvar_Click(object sender, RoutedEventArgs e)
         {
             Funcionario funcAtualizado = new Funcionario();
-            //funcAtualizado.Adm
-            //funcAtualizado.Ativo
             funcAtualizado.Bairro = textBox_bairro.Text;
             funcAtualizado.Cep = textBox_cep.Text;
             funcAtualizado.Cidade = textBox_cidade.Text;

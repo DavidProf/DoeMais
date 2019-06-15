@@ -61,7 +61,7 @@ namespace DoeMais.BD
             }
         }
 
-        public List<String[]> getMensagensPorData(String data)
+        public List<String[]> getMensagensPorData(String data1, String data2)
         {//Retorna uma lista da última mensagem de cada doador ordenado por data
             List<String[]> retorno = new List<String[]>();
             try
@@ -72,16 +72,18 @@ namespace DoeMais.BD
                 " SELECT  " +
                 " tblMensagem.fk_IdDoador, " +
                 " (tblDoador.Nome + ' ' + tblDoador.Sobrenome), " +
-                " tblMensagem.Texto " +
+                " tblMensagem.Texto, " +
+                " tblMensagem.DataDeEnvio " +
                 " FROM tblMensagem " +
-                " WHERE tblMensagem.DataDeEnvio LIKE @data " +
+                " WHERE tblMensagem.DataDeEnvio BETWEEN @data1 AND @data2 " +
                 " LEFT JOIN tblDoador " +
                 " ON tblMensagem.fk_IdDoador = tblDoador.IdDoador " +
                 " WHERE tblMensagem.fk_Cnpj = @cnpj AND (tblMensagem.Lida = 0 or tblMensagem.Lida is null) " +
                 " ORDER BY tblMensagem.DataDeEnvio DESC " +
                 "";
                 cmd.Parameters.AddWithValue("@cnpj", ControlViews.cnpj);
-                cmd.Parameters.AddWithValue("@data", data);
+                cmd.Parameters.AddWithValue("@data1", data1);
+                cmd.Parameters.AddWithValue("@data2", data2);
                 #endregion
 
                 dr = cmd.ExecuteReader();
@@ -94,7 +96,8 @@ namespace DoeMais.BD
                         {
                             dr[0].ToString(),//IdDoador
                             dr[1].ToString(),//Nome Doador
-                            dr[2].ToString() //texto
+                            dr[2].ToString(), //texto
+                            dr[3].ToString()
                         };
                         retorno.Add(info);
                     }

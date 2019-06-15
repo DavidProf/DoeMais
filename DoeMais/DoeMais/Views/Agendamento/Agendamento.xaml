@@ -92,19 +92,17 @@
                 <TextBox
                     Name="textBox_data1"
                     Grid.Column="1"
-                    Margin="5,0,5,0"
-                    Text="dd/MM/aaaa" />
+                    Margin="5,0,5,0" />
                 <TextBox
                     Name="textBox_data2"
                     Grid.Column="3"
-                    Margin="5,0,5,0"
-                    Text="dd/MM/aaaa" />
+                    Margin="5,0,5,0" />
                 <!--  button  -->
                 <Button
                     Name="button_buscar"
                     Grid.Column="4"
                     Margin="7"
-                    Content="Buscar" />
+                    Content="Buscar" Click="button_buscar_Click" />
             </Grid>
 
         </GroupBox>
@@ -113,11 +111,12 @@
             Name="listView_agendamento"
             Grid.Row="3"
             Grid.Column="1"
-            Grid.ColumnSpan="3">
+            Grid.ColumnSpan="3"
+            ItemsSource="{Binding ListaAgendamentos}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="100" Header="Data" />
-                    <GridViewColumn Width="300" Header="Nome" />
+                    <GridViewColumn Width="100" Header="Data" DisplayMemberBinding="{Binding Data}"/>
+                    <GridViewColumn Width="300" Header="Nome" DisplayMemberBinding="{Binding NomeDoador}"/>
                 </GridView>
             </ListView.View>
         </ListView>

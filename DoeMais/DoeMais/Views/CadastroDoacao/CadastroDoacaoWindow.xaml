@@ -96,7 +96,7 @@
         <TextBox Name="textBox_buscaCPF"
                  Grid.Column="1"
                  Grid.Row="1"
-                 Margin="0 5 0 5" MouseLeave="textBox_buscaCPF_MouseLeave"/>
+                 Margin="0 5 0 5" LostFocus="textBox_buscaCPF_LostFocus"/>
         <TextBox Name="textBox_data"
                  Grid.Column="4"
                  Grid.Row="1"

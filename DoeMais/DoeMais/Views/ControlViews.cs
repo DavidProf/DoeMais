@@ -553,7 +553,7 @@ namespace DoeMais.Views
         // Fechar e abrir janela de checkInMais
         #region checkin mais
 
-        public static void startCheckInMais()
+        public static void startCheckInMais(String codigo, String data, String nome, String cpfcnpj, String domicilio)
         {
             if (checkInMaisOn)
             {
@@ -564,7 +564,7 @@ namespace DoeMais.Views
                 double x = checkInWindow.Left;
                 double y = checkInWindow.Top;
                 closeCheckIn();
-                checkInMaisWindow = new CheckIn.CheckInMaisWindow();
+                checkInMaisWindow = new CheckIn.CheckInMaisWindow(codigo, data, nome, cpfcnpj, domicilio);
                 checkInMaisWindow.Show();
                 checkInMaisWindow.Top = y;
                 checkInMaisWindow.Left = x;

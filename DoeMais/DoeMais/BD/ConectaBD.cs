@@ -13,7 +13,7 @@ namespace DoeMais.BD
     {
         #region Instâncias/Váriavel SQL
 	//Edite abaixo
-        public SqlConnection conn = new SqlConnection("Data Source=*HOST*;Initial Catalog=DoeMais;Persist Security Info=True;User ID=*usuário*;Password=*senha*");
+        public SqlConnection conn = new SqlConnection("Server=DESKTOP-CHDG769;Database=DoeMais;Trusted_Connection=True");
         public SqlCommand cmd = new SqlCommand();
         public SqlDataReader dr;
         #endregion

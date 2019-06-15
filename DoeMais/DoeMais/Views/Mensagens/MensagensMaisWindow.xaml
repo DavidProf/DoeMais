@@ -96,6 +96,9 @@
             Grid.ColumnSpan="2" 
             Height="auto"
             Width="550"
+            TextWrapping="Wrap"
+            VerticalScrollBarVisibility="Auto"
+            AcceptsReturn="True"
             IsReadOnly="True"
             Margin="10"/>
         <TextBox
@@ -103,6 +106,9 @@
             Grid.Row="4" 
             Grid.ColumnSpan="2"
             Height="auto"
+            TextWrapping="Wrap"
+            VerticalScrollBarVisibility="Auto"
+            AcceptsReturn="True"
             Width="550"
             Margin="10"/>
         <!--button-->

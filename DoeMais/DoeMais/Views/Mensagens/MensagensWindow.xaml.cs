@@ -81,17 +81,42 @@ namespace DoeMais.Views.Mensagens
 
             if (checkBox_filtroData.IsChecked == false)
             {
-                String[] doador = getDoadorID.getDoadorId(textBox_CpfCnpj.Text);
-                List<String[]> mensagens = getMensagens.getMensagensDoDoador(Convert.ToInt32(doador[0]));
-
-                foreach (var mensagem in mensagens)
+                try
                 {
-                    listView_mensagens.Items.Add(new MensagensRecebidas() { Data = mensagem[0], Nome = mensagem[1], Mensagem = mensagem[3] });
+                    String[] doador = getDoadorID.getDoadorId(textBox_CpfCnpj.Text);
+                    List<String[]> mensagens = getMensagens.getMensagensDoDoador(Convert.ToInt32(doador[0]));
+
+                    foreach (var mensagem in mensagens)
+                    {
+                        listView_mensagens.Items.Add(new MensagensRecebidas() { Data = mensagem[0], Nome = mensagem[1], Mensagem = mensagem[3] });
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Não foi possível carregar as mensagens!");
                 }
             }
             else if (checkBox_filtroData.IsChecked == true)
             {
+                DateTime data1 = Convert.ToDateTime(textBox_dataDe.Text);
+                DateTime data2 = Convert.ToDateTime(textBox_dataAte.Text);
 
+                String data1Formatada = data1.ToString("yyyy-MM-dd HH:mm:ss.fff");
+                String data2Formatada = data2.ToString("yyyy-MM-dd HH:mm:ss.fff");
+
+                try
+                {
+                    List<String[]> mensagens = getMensagens.getMensagensPorData(data1Formatada, data2Formatada);
+
+                    foreach (var mensagem in mensagens)
+                    {
+                        listView_mensagens.Items.Add(new MensagensRecebidas() { Data = mensagem[0], Nome = mensagem[1], Mensagem = mensagem[3] });
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Não foi possível carregar as mensagens!");
+                }
             }
         }
     }

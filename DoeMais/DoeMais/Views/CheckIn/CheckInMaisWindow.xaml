@@ -152,14 +152,15 @@
         </GroupBox>
         <!--  listview  -->
         <ListView
-            Name="listView"
+            Name="listView_itens"
             Grid.Row="2"
             Grid.RowSpan="5"
-            Margin="15">
+            Margin="15"
+            ItemsSource="{Binding ItensDoacao}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="300" Header="Item" />
-                    <GridViewColumn Width="auto" Header="Qtd" />
+                    <GridViewColumn Width="300" Header="Item" DisplayMemberBinding="{Binding Nome}"/>
+                    <GridViewColumn Width="auto" Header="Qtd" DisplayMemberBinding="{Binding Qtd}"/>
                 </GridView>
             </ListView.View>
         </ListView>

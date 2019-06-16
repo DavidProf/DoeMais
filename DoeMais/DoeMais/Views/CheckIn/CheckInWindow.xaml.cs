@@ -58,8 +58,13 @@ namespace DoeMais.Views.CheckIn
                 textBox_busca.IsReadOnly = true;
             }
 
-            if (radioButton_CPF.IsChecked == true || radioButton_CNPJ.IsChecked == true || radioButton_CNPJ.IsChecked == true || radioButton_nenhum.IsChecked == true)
+            if (radioButton_CPF.IsChecked == true || radioButton_CNPJ.IsChecked == true || radioButton_nome.IsChecked == true || radioButton_nenhum.IsChecked == true)
             {
+                if (textBox_busca.Text == "")
+                {
+                    MessageBox.Show("Digite o CPF/CNPJ ou o nome do doador para realizar a busca!");
+                }
+
                 try
                 {
                     List<String[]> doacoes = doaBD.getDoacoes(textBox_busca.Text);

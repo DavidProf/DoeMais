@@ -79,6 +79,11 @@ namespace DoeMais.Views.Mensagens
             DoadorBD getDoadorID = new DoadorBD();
             MensagemBD getMensagens = new MensagemBD();
 
+            if (textBox_CpfCnpj.Text == "" || textBox_dataDe.Text == "" || textBox_dataAte.Text == "")
+            {
+                MessageBox.Show("Digite o CPF/CNPJ do doador ou um intervalo de datas para realizar a busca!");
+            }
+
             if (checkBox_filtroData.IsChecked == false)
             {
                 try

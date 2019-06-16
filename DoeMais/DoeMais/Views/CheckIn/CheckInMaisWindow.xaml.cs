@@ -28,9 +28,11 @@ namespace DoeMais.Views.CheckIn
             CloseApp.Click += (s, e) => ControlViews.closeCheckInMais();
 
             textBox_cpfCnpj.Text = cpfcnpj;
-            textBox_data.Text = data;
-            textBox_hora.Text = "depois faz o split";
+            String[] dataHora = data.Split(' ');
+            textBox_data.Text = dataHora[0];
+            textBox_hora.Text = dataHora[1];
             textBox_nome.Text = nome;
+            label_codigo.Content = codigo;
 
             DoacaoBD doacao = new DoacaoBD();
             ItensDoacao itemDoacao = new ItensDoacao();
@@ -38,10 +40,7 @@ namespace DoeMais.Views.CheckIn
 
             try
             {
-                foreach (var item in itens)
-                {
-                    listView_itens.Items.Add(new ItensDoacao() { Nome = item[0].ToString(), Qtd = item[1].ToString() });
-                }
+                listView_itens.Items.Add(new ItensDoacao() { Nome = itens[0].ToString(), Qtd = itens[1].ToString() });
 
                 if (domicilio == "0")
                 {
@@ -55,6 +54,21 @@ namespace DoeMais.Views.CheckIn
             catch
             {
                 MessageBox.Show("Não foi possível carregar a lista de itens no momento. Tente novamente mais tarde");
+            }
+        }
+
+        private void button_Concluir_Click(object sender, RoutedEventArgs e)
+        {
+            DoacaoBD doacao = new DoacaoBD();
+            Boolean concluir = doacao.retiraPendenciaDaDoacao(Convert.ToInt32(label_codigo.Content));
+
+            if (concluir)
+            {
+                MessageBox.Show("Registro de doação concluído com sucesso!");
+            }
+            else
+            {
+                MessageBox.Show("Erro ao concluir a doação. Tente novamente mais tarde");
             }
         }
     }

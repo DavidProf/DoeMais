@@ -195,7 +195,7 @@
             Grid.Column="1"
             Width="100"
             Height="30"
-            Content="Concluir" />
+            Content="Concluir" Click="button_Concluir_Click" />
         <!--  label  -->
         <Label
             Name="label_codigo"

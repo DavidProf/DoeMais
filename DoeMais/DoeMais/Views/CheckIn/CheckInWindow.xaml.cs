@@ -39,7 +39,7 @@ namespace DoeMais.Views.CheckIn
             }
             catch
             {
-                MessageBox.Show("Por favor, selecione uma mensagem!");
+                MessageBox.Show("Por favor, selecione uma doação pendente!");
             }
         }
 
@@ -55,13 +55,10 @@ namespace DoeMais.Views.CheckIn
 
             if (radioButton_nenhum.IsChecked == true)
             {
-               /* List<String[]> doacoes = doacao.getDoacoes()
-                foreach (var func in funcs)
-                {
-                    listView_funcionarios.Items.Add(new Funcionario() { Cpf = func.Cpf, Nome = func.Nome + " " + func.Sobrenome });
-                } */
+                textBox_busca.IsReadOnly = true;
             }
-            else if (radioButton_CPF.IsChecked == true || radioButton_CNPJ.IsChecked == true || radioButton_CNPJ.IsChecked == true)
+
+            if (radioButton_CPF.IsChecked == true || radioButton_CNPJ.IsChecked == true || radioButton_CNPJ.IsChecked == true || radioButton_nenhum.IsChecked == true)
             {
                 try
                 {
@@ -80,7 +77,7 @@ namespace DoeMais.Views.CheckIn
 
                     if (doacoes.Count == 0)
                     {
-                        MessageBox.Show("Não existem doações com este filtro!");
+                        MessageBox.Show("Não há doações pendentes!");
                     }
                 }
                 catch

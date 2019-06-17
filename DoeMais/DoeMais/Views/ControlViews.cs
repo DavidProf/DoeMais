@@ -356,7 +356,7 @@ namespace DoeMais.Views
             if (mensagensMaisOn)
             {
                 closeMensagensMais();
-                mensagensWindow.Focus();
+                menuWindow.Focus();
             }
         }
 

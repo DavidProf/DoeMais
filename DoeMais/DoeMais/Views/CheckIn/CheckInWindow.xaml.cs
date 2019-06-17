@@ -26,6 +26,7 @@ namespace DoeMais.Views.CheckIn
             InitializeComponent();
             MinimizeWindow.Click += (s, e) => WindowState = WindowState.Minimized;
             CloseApp.Click += (s, e) => ControlViews.closeCheckIn();
+            radioButton_nenhum.IsChecked = true;
         }
 
         private void button_detalhes_Click(object sender, RoutedEventArgs e)
@@ -58,13 +59,40 @@ namespace DoeMais.Views.CheckIn
                 textBox_busca.IsReadOnly = true;
             }
 
-            if (radioButton_CPF.IsChecked == true || radioButton_CNPJ.IsChecked == true || radioButton_nome.IsChecked == true || radioButton_nenhum.IsChecked == true)
+            if (radioButton_CPF.IsChecked == true || radioButton_CNPJ.IsChecked == true || radioButton_nome.IsChecked == true)
             {
                 if (textBox_busca.Text == "")
                 {
                     MessageBox.Show("Digite o CPF/CNPJ ou o nome do doador para realizar a busca!");
                 }
 
+                try
+                {
+                    List<String[]> doacoes = doaBD.getDoacoes(textBox_busca.Text);
+                    foreach (var doacao in doacoes)
+                    {
+                        if (doacao[4] == "0")
+                        {
+                            listView_doacoes.Items.Add(new ListaDoacoes() { CodDoacao = doacao[0], Data = doacao[1], Nome = doacao[2], CpfCnpj = doacao[3], Domicilio = "Não" });
+                        }
+                        else if (doacao[4] == "1")
+                        {
+                            listView_doacoes.Items.Add(new ListaDoacoes() { CodDoacao = doacao[0], Data = doacao[1], Nome = doacao[2], CpfCnpj = doacao[3], Domicilio = "Sim" });
+                        }
+                    }
+
+                    if (doacoes.Count == 0)
+                    {
+                        MessageBox.Show("Não há doações pendentes!");
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Erro no servidor. Por favor, tente novamente mais tarde");
+                }
+            }
+            else if (radioButton_nenhum.IsChecked == true)
+            {
                 try
                 {
                     List<String[]> doacoes = doaBD.getDoacoes(textBox_busca.Text);

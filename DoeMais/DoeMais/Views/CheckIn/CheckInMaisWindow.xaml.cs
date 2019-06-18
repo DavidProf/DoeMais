@@ -36,19 +36,22 @@ namespace DoeMais.Views.CheckIn
 
             DoacaoBD doacao = new DoacaoBD();
             ItensDoacao itemDoacao = new ItensDoacao();
-            List<String> itens = doacao.getItensDaDoacao(Convert.ToInt32(codigo));
+            List<String[]> itens = doacao.getItensDaDoacao(Convert.ToInt32(codigo));
+
+            if (domicilio == "0")
+            {
+                checkBox_retiraDomicilio.IsChecked = false;
+            }
+            else if (domicilio == "1")
+            {
+                checkBox_retiraDomicilio.IsChecked = true;
+            }
 
             try
             {
-                listView_itens.Items.Add(new ItensDoacao() { Nome = itens[0].ToString(), Qtd = itens[1].ToString() });
-
-                if (domicilio == "0")
+                for (int i = 0; itens.Count > i; i++)
                 {
-                    checkBox_retiraDomicilio.IsChecked = false;
-                }
-                else if (domicilio == "1")
-                {
-                    checkBox_retiraDomicilio.IsChecked = true;
+                    listView_itens.Items.Add(new ItensDoacao() { Nome = itens[i][0], Qtd = itens[i][1] });
                 }
             }
             catch
@@ -65,6 +68,7 @@ namespace DoeMais.Views.CheckIn
             if (concluir)
             {
                 MessageBox.Show("Registro de doação concluído com sucesso!");
+                ControlViews.closeCheckInMais();
             }
             else
             {

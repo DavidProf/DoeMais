@@ -127,10 +127,10 @@ namespace DoeMais.BD
                 cmd.CommandText =
                 " SELECT " +
                 " DISTINCT IdDoacao, " +
-                " DataEntrega, " +
+                " IIF(DataEntrega IS NULL, DataRetirada, DataEntrega), " +
                 " CONCAT((tblDoador.Nome + ' ' + tblDoador.Sobrenome),tblDoador.RazaoSocial), " +
                 " tblDoador.CPF_CNPJ, " +
-                " IIF(tblDoacao.DataRetirada IS NULL, 0, 1) " +
+                " IIF(tblDoacao.DataRetirada IS NULL, 0, 1)" +
                 " FROM tblDoacao " +
                 " LEFT JOIN tblDoador " +
                 " ON tblDoacao.fk_IdDoador = tblDoador.IdDoador " +
@@ -180,9 +180,9 @@ namespace DoeMais.BD
             }
         }
 
-        public List<String> getItensDaDoacao(int idDoacao)
+        public List<String[]> getItensDaDoacao(int idDoacao)
         {//retorna os itens da doação e a quantidade na linha abaixo do item
-            List<String> retorno = new List<String>();
+            List<String[]> retorno = new List<String[]>();
             try
             {
                 open();
@@ -209,8 +209,10 @@ namespace DoeMais.BD
                 {
                     while (dr.Read())
                     {
-                        retorno.Add(dr[0].ToString());
-                        retorno.Add(dr[1].ToString());
+                        String[] itens = new String[2];
+                        itens[0] = dr[0].ToString();
+                        itens[1] = dr[1].ToString();
+                        retorno.Add(itens);
                     }
                 }
 

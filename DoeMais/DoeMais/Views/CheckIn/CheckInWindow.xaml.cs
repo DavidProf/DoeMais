@@ -54,11 +54,6 @@ namespace DoeMais.Views.CheckIn
             DoacaoBD doaBD = new DoacaoBD();
             ListaDoacoes lista = new ListaDoacoes();
 
-            if (radioButton_nenhum.IsChecked == true)
-            {
-                textBox_busca.IsReadOnly = true;
-            }
-
             if (radioButton_CPF.IsChecked == true || radioButton_CNPJ.IsChecked == true || radioButton_nome.IsChecked == true)
             {
                 if (textBox_busca.Text == "")
@@ -86,16 +81,18 @@ namespace DoeMais.Views.CheckIn
                         MessageBox.Show("Não há doações pendentes!");
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Erro no servidor. Por favor, tente novamente mais tarde");
+                    MessageBox.Show("Erro no servidor. Por favor, tente novamente mais tarde" + ex);
                 }
             }
             else if (radioButton_nenhum.IsChecked == true)
             {
+                textBox_busca.IsReadOnly = true;
+
                 try
                 {
-                    List<String[]> doacoes = doaBD.getDoacoes(textBox_busca.Text);
+                    List<String[]> doacoes = doaBD.getDoacoes("");
                     foreach (var doacao in doacoes)
                     {
                         if (doacao[4] == "0")
@@ -113,9 +110,9 @@ namespace DoeMais.Views.CheckIn
                         MessageBox.Show("Não há doações pendentes!");
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Erro no servidor. Por favor, tente novamente mais tarde");
+                    MessageBox.Show("Erro no servidor. Por favor, tente novamente mais tarde" + ex);
                 }
             }
         }
